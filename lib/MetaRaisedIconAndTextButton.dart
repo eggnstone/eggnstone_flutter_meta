@@ -7,7 +7,6 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
 {
     final Icon icon;
     final String text;
-    final String textUpperCase;
     final Color color;
     final VoidCallback onPressed;
     final Color textColor;
@@ -15,7 +14,6 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
     MetaRaisedIconAndTextButton({
         this.icon,
         this.text,
-        this.textUpperCase,
         this.color,
         this.onPressed,
         this.textColor
@@ -47,7 +45,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                 children: <Widget>[
                     icon,
                     SizedBox(width: 16),
-                    Text(textUpperCase)
+                    Text(text.toUpperCase())
                 ]
             ),
             color: color,
