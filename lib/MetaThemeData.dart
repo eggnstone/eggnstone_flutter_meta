@@ -4,7 +4,13 @@ import 'Meta.dart';
 
 class MetaThemeData
 {
-    static ThemeData createMaterialTheme({@required Color color, @required bool createDarkTheme})
+    static ThemeData createMaterialTheme({
+        @required Color color,
+        @required bool createDarkTheme,
+        TextStyle textStyleBody1,
+        TextStyle textStyleButton,
+        TextStyle textStyleSubhead,
+    })
     {
         assert(color != null);
         assert(createDarkTheme != null);
@@ -28,18 +34,27 @@ class MetaThemeData
         return ThemeData(
             brightness: Meta.brightness == null ? createDarkTheme ? Brightness.dark : Brightness.light : Meta.brightness,
 
-            //accentColor: color,
-            //buttonColor: color, TODO: blue in dark mode
-            cursorColor: color,
+            //accentColor: Colors.red,
+            //buttonColor: Colors.red, //color, TODO: blue in dark mode
+
             // text cursor
-            primaryColor: color,
+            cursorColor: color,
             // AppBar in dark mode
+            primaryColor: color,
+            //
             primarySwatch: materialColor,
-            textSelectionHandleColor: color,
             // text selection handles
-            textSelectionColor: color.withOpacity(0.5),
+            textSelectionHandleColor: color,
             // selected text
-            toggleableActiveColor: color, // SwitchMaterial, Radio, Checkbox
+            textSelectionColor: color.withOpacity(0.5),
+            // SwitchMaterial, Radio, Checkbox
+            toggleableActiveColor: color,
+
+            textTheme: TextTheme(
+                body1: textStyleBody1,
+                button: textStyleButton,
+                subhead: textStyleSubhead,
+            ),
         );
     }
 }
