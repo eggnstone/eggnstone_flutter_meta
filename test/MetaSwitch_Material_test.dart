@@ -31,7 +31,7 @@ void main()
         expect(find.byType(Switch), findsOneWidget);
     });
 
-    testWidgets('MetaSwitch_MaterialSwitch_LightTheme_DefaultColor', (WidgetTester tester)
+    testWidgets('MetaSwitch_Material_LightTheme_DefaultColor', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Material;
@@ -48,10 +48,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(Switch);
-        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch_MaterialSwitch_LightTheme_DefaultColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Material/LightTheme_DefaultColor.png'));
     });
 
-    testWidgets('MetaSwitch_MaterialSwitch_DarkTheme_DefaultColor', (WidgetTester tester)
+    testWidgets('MetaSwitch_Material_DarkTheme_DefaultColor', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Material;
@@ -68,10 +68,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(Switch);
-        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch_MaterialSwitch_DarkTheme_DefaultColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Material/DarkTheme_DefaultColor.png'));
     });
 
-    testWidgets('MetaSwitch_MaterialSwitch_LightTheme_CustomColor', (WidgetTester tester)
+    testWidgets('MetaSwitch_Material_LightTheme_CustomColor', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Material;
@@ -88,10 +88,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(Switch);
-        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch_MaterialSwitch_LightTheme_CustomColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Material/LightTheme_CustomColor.png'));
     });
 
-    testWidgets('MetaSwitch_MaterialSwitch_DarkTheme_CustomColor', (WidgetTester tester)
+    testWidgets('MetaSwitch_Material_DarkTheme_CustomColor', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Material;
@@ -108,6 +108,6 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(Switch);
-        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch_MaterialSwitch_DarkTheme_CustomColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Material/DarkTheme_CustomColor.png'));
     });
 }

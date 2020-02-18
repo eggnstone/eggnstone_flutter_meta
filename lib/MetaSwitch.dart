@@ -26,7 +26,7 @@ class MetaSwitch extends StatelessWidget
                 .primaryColor;
 
             return CupertinoSwitch(
-                activeColor: activeColor,
+                //activeColor: activeColor,
                 value: value,
                 onChanged: onChanged,
             );
