@@ -47,6 +47,7 @@ void main()
         );
 
         await tester.pumpWidget(testWidget);
+
         Finder finder = find.byType(Switch);
         await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Material/DefaultColor_LightTheme.png'));
     });
@@ -67,6 +68,7 @@ void main()
         );
 
         await tester.pumpWidget(testWidget);
+
         Finder finder = find.byType(Switch);
         await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Material/DefaultColor_DarkTheme.png'));
     });
@@ -87,6 +89,7 @@ void main()
         );
 
         await tester.pumpWidget(testWidget);
+
         Finder finder = find.byType(Switch);
         await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Material/CustomColor_LightTheme.png'));
     });
@@ -107,6 +110,7 @@ void main()
         );
 
         await tester.pumpWidget(testWidget);
+
         Finder finder = find.byType(Switch);
         await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Material/CustomColor_DarkTheme.png'));
     });

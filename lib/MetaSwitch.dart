@@ -25,6 +25,7 @@ class MetaSwitch extends StatelessWidget
 
             // Unfortunately there is currently no way to detect if the primaryColor was null when creating the theme,
             // therefore the Cupertino-green default color will always be overridden.
+            // TODO: find a solution
 
             return CupertinoSwitch(
                 activeColor: cupertinoTheme.primaryColor,
