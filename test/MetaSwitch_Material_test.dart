@@ -1,7 +1,6 @@
 import 'package:eggnstone_flutter_meta/Meta.dart';
 import 'package:eggnstone_flutter_meta/MetaDesign.dart';
 import 'package:eggnstone_flutter_meta/MetaSwitch.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -30,26 +29,6 @@ void main()
         await tester.pumpWidget(testWidget);
 
         expect(find.byType(Switch), findsOneWidget);
-    });
-
-    testWidgets('MetaDesign.Cupertino -> CupertinoSwitch', (WidgetTester tester)
-    async
-    {
-        Meta.forceDesign = MetaDesign.Cupertino;
-        Meta.brightness = Brightness.light;
-
-        Widget testWidget = TestTools.createMetaApp(
-            primaryColor: null,
-            child: MetaSwitch(
-                value: false,
-                onChanged: (_)
-                {}
-            )
-        );
-
-        await tester.pumpWidget(testWidget);
-
-        expect(find.byType(CupertinoSwitch), findsOneWidget);
     });
 
     testWidgets('MetaSwitch_MaterialSwitch_LightTheme_DefaultColor', (WidgetTester tester)
