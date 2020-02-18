@@ -29,8 +29,15 @@ class MetaSimpleAlertDialog
         if (confirmText != null)
             actions.add(MetaAlertDialogButton(text: confirmText, isDestructiveAction: isDestructiveAction, onPressed: confirmAction));
 
-        return showDialog(context: context, builder: (BuildContext context)
-        => MetaAlertDialog(title: title == null ? null : Text(title), content: content == null ? null : Text(content), actions: actions));
+        return showDialog(
+            context: context,
+            builder: (BuildContext context)
+            =>
+                MetaAlertDialog(
+                    title: title == null ? null : Text(title),
+                    content: content == null ? null : Text(content), actions: actions
+                )
+        );
     }
 
     static Future<T> showWithWidgets<T>({

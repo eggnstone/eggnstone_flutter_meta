@@ -26,7 +26,6 @@ class MetaAlertDialog extends StatelessWidget
     })
     {
         assert(title != null);
-        assert(content != null);
     }
 
     @override
