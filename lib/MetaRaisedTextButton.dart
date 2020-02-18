@@ -24,17 +24,27 @@ class MetaRaisedTextButton extends StatelessWidget
         {
             CupertinoThemeData theme = CupertinoTheme.of(context);
             Color actualColor = color == null ? theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300] : color;
-            Color textColor = actualColor == null ? null : actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black;
+            Color actualTextColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+            TextStyle actualTextStyle = actualTextColor == null ? null : theme.textTheme.textStyle.copyWith(color: actualTextColor);
 
             return CupertinoButton(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                minSize: 1.0,
-                child: Text(text, style: TextStyle(color: textColor)),
+                child: Text(text, style: actualTextStyle),
                 color: actualColor,
-                onPressed: onPressed
+                minSize: 1.0,
+                onPressed: onPressed,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             );
         }
 
-        return RaisedButton(child: Text(text.toUpperCase()), color: color, onPressed: onPressed, textColor: textColor);
+        ThemeData materialTheme = Theme.of(context);
+        Color actualColor = color == null ? materialTheme.buttonColor : color;
+        Color actualTextColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+
+        return RaisedButton(
+            child: Text(text.toUpperCase()),
+            color: actualColor,
+            onPressed: onPressed,
+            textColor: actualTextColor,
+        );
     }
 }
