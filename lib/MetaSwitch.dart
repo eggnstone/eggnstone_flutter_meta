@@ -21,12 +21,13 @@ class MetaSwitch extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            Color activeColor = CupertinoTheme
-                .of(context)
-                .primaryColor;
+            CupertinoThemeData cupertinoTheme = CupertinoTheme.of(context);
+
+            // Unfortunately there is currently no way to detect if the primaryColor was null when creating the theme,
+            // therefore the Cupertino-green default color will always be overridden.
 
             return CupertinoSwitch(
-                //activeColor: activeColor,
+                activeColor: cupertinoTheme.primaryColor,
                 value: value,
                 onChanged: onChanged,
             );
