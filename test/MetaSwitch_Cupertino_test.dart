@@ -32,7 +32,7 @@ void main()
         expect(find.byType(CupertinoSwitch), findsOneWidget);
     });
 
-    testWidgets('MetaSwitch_Cupertino_LightTheme_DefaultColor', (WidgetTester tester)
+    testWidgets('MetaSwitch_Cupertino_DefaultColor_LightTheme', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Cupertino;
@@ -49,10 +49,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(CupertinoSwitch);
-        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Cupertino/LightTheme_DefaultColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Cupertino/DefaultColor_LightTheme.png'));
     });
 
-    testWidgets('MetaSwitch_Cupertino_DarkTheme_DefaultColor', (WidgetTester tester)
+    testWidgets('MetaSwitch_Cupertino_DefaultColor_DarkTheme', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Cupertino;
@@ -69,10 +69,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(CupertinoSwitch);
-        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Cupertino/DarkTheme_DefaultColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Cupertino/DefaultColor_DarkTheme.png'));
     });
 
-    testWidgets('MetaSwitch_Cupertino_LightTheme_CustomColor', (WidgetTester tester)
+    testWidgets('MetaSwitch_Cupertino_CustomColor_LightTheme', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Cupertino;
@@ -89,10 +89,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(CupertinoSwitch);
-        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Cupertino/LightTheme_CustomColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Cupertino/CustomColor_LightTheme.png'));
     });
 
-    testWidgets('MetaSwitch_Cupertino_DarkTheme_CustomColor', (WidgetTester tester)
+    testWidgets('MetaSwitch_Cupertino_CustomColor_DarkTheme', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Cupertino;
@@ -109,6 +109,6 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(CupertinoSwitch);
-        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Cupertino/DarkTheme_CustomColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaSwitch/Cupertino/CustomColor_DarkTheme.png'));
     });
 }

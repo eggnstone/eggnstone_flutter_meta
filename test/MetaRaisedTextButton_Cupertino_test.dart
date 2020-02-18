@@ -34,7 +34,7 @@ void main()
         expect(find.byType(CupertinoButton), findsOneWidget);
     });
 
-    testWidgets('MetaRaisedTextButton_Cupertino_LightTheme_DefaultColor', (WidgetTester tester)
+    testWidgets('MetaRaisedTextButton_Cupertino_DefaultColor_LightTheme', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Cupertino;
@@ -51,10 +51,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(CupertinoButton);
-        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/LightTheme_DefaultColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/DefaultColor_LightTheme.png'));
     });
 
-    testWidgets('MetaRaisedTextButton_Cupertino_DarkTheme_DefaultColor', (WidgetTester tester)
+    testWidgets('MetaRaisedTextButton_Cupertino_DefaultColor_DarkTheme', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Cupertino;
@@ -71,10 +71,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(CupertinoButton);
-        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/DarkTheme_DefaultColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/DefaultColor_DarkTheme.png'));
     });
 
-    testWidgets('MetaRaisedTextButton_Cupertino_LightTheme_LightColor', (WidgetTester tester)
+    testWidgets('MetaRaisedTextButton_Cupertino_LightColor_LightTheme', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Cupertino;
@@ -91,10 +91,10 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(CupertinoButton);
-        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/LightTheme_LightColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/LightColor_LightTheme.png'));
     });
 
-    testWidgets('MetaRaisedTextButton_Cupertino_DarkTheme_LightColor', (WidgetTester tester)
+    testWidgets('MetaRaisedTextButton_Cupertino_LightColor_DarkTheme', (WidgetTester tester)
     async
     {
         Meta.forceDesign = MetaDesign.Cupertino;
@@ -111,6 +111,46 @@ void main()
 
         await tester.pumpWidget(testWidget);
         Finder finder = find.byType(CupertinoButton);
-        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/DarkTheme_LightColor.png'));
+        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/LightColor_DarkTheme.png'));
+    });
+
+    testWidgets('MetaRaisedTextButton_Cupertino_DarkColor_LightTheme', (WidgetTester tester)
+    async
+    {
+        Meta.forceDesign = MetaDesign.Cupertino;
+        Meta.brightness = Brightness.light;
+
+        Widget testWidget = TestTools.createMetaApp(
+            primaryColor: TEST_COLOR_DARK,
+            child: MetaRaisedTextButton(
+                text: TEST_TEXT,
+                onPressed: ()
+                {}
+            )
+        );
+
+        await tester.pumpWidget(testWidget);
+        Finder finder = find.byType(CupertinoButton);
+        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/DarkColor_LightTheme.png'));
+    });
+
+    testWidgets('MetaRaisedTextButton_Cupertino_DarkColor_DarkTheme', (WidgetTester tester)
+    async
+    {
+        Meta.forceDesign = MetaDesign.Cupertino;
+        Meta.brightness = Brightness.dark;
+
+        Widget testWidget = TestTools.createMetaApp(
+            primaryColor: TEST_COLOR_DARK,
+            child: MetaRaisedTextButton(
+                text: TEST_TEXT,
+                onPressed: ()
+                {}
+            )
+        );
+
+        await tester.pumpWidget(testWidget);
+        Finder finder = find.byType(CupertinoButton);
+        await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Cupertino/DarkColor_DarkTheme.png'));
     });
 }
