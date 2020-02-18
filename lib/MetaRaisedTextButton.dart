@@ -24,8 +24,8 @@ class MetaRaisedTextButton extends StatelessWidget
         {
             CupertinoThemeData theme = CupertinoTheme.of(context);
             Color actualColor = color == null ? theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300] : color;
-            Color actualTextColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
-            TextStyle actualTextStyle = actualTextColor == null ? null : theme.textTheme.textStyle.copyWith(color: actualTextColor);
+            Color actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+            TextStyle actualTextStyle = actualContentColor == null ? null : theme.textTheme.textStyle.copyWith(color: actualContentColor);
 
             return CupertinoButton(
                 child: Text(text, style: actualTextStyle),
@@ -38,13 +38,13 @@ class MetaRaisedTextButton extends StatelessWidget
 
         ThemeData materialTheme = Theme.of(context);
         Color actualColor = color == null ? materialTheme.buttonColor : color;
-        Color actualTextColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+        Color actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
 
         return RaisedButton(
             child: Text(text.toUpperCase()),
             color: actualColor,
             onPressed: onPressed,
-            textColor: actualTextColor,
+            textColor: actualContentColor,
         );
     }
 }
