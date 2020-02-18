@@ -12,20 +12,20 @@ import 'Meta.dart';
 class MetaAlertDialog extends StatelessWidget
 {
     final Widget title;
-    final EdgeInsetsGeometry overrideAndroidDefaultTitlePadding;
+    final EdgeInsetsGeometry overrideMaterialDefaultTitlePadding;
     final Widget content;
-    final EdgeInsetsGeometry overrideAndroidDefaultContentPadding;
+    final EdgeInsetsGeometry overrideMaterialDefaultContentPadding;
     final List<Widget> actions;
 
     MetaAlertDialog({
         this.title,
-        this.overrideAndroidDefaultTitlePadding,
+        this.overrideMaterialDefaultTitlePadding,
         this.content,
-        this.overrideAndroidDefaultContentPadding,
+        this.overrideMaterialDefaultContentPadding,
         this.actions
     })
     {
-        assert(title != null);
+        assert(title != null || content != null);
     }
 
     @override
@@ -50,13 +50,13 @@ class MetaAlertDialog extends StatelessWidget
             );
 
         // contentPadding must not be null hence putting in the default here
-        EdgeInsetsGeometry actualAndroidContentPadding = overrideAndroidDefaultContentPadding == null ? const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0) : overrideAndroidDefaultContentPadding;
+        EdgeInsetsGeometry actualMaterialContentPadding = overrideMaterialDefaultContentPadding == null ? const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0) : overrideMaterialDefaultContentPadding;
 
         return AlertDialog(
             title: actualTitle,
-            titlePadding: overrideAndroidDefaultTitlePadding,
+            titlePadding: overrideMaterialDefaultTitlePadding,
             content: actualContent,
-            contentPadding: actualAndroidContentPadding,
+            contentPadding: actualMaterialContentPadding,
             actions: actions
         );
     }
