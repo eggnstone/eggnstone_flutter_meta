@@ -21,15 +21,28 @@ class MetaRaisedWidgetButton extends StatelessWidget
     Widget build(BuildContext context)
     {
         if (Meta.isDesignCupertino)
-            return CupertinoButton.filled(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                minSize: 1.0,
-                child: child,
-                //color: color,
-                onPressed: onPressed,
-                //textColor: textColor
-            );
+        {
+            CupertinoThemeData theme = CupertinoTheme.of(context);
+            Color actualColor = color == null ? theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300] : color;
 
-        return RaisedButton(child: child, color: color, onPressed: onPressed, textColor: textColor);
+            return CupertinoButton(
+                child: child,
+                color: actualColor,
+                minSize: 1.0,
+                onPressed: onPressed,
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            );
+        }
+
+        ThemeData materialTheme = Theme.of(context);
+        Color actualColor = color == null ? materialTheme.buttonColor : color;
+        Color actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+
+        return RaisedButton(
+            child: child,
+            color: actualColor,
+            onPressed: onPressed,
+            textColor: actualContentColor
+        );
     }
 }
