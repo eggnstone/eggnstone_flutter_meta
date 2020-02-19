@@ -18,6 +18,7 @@ void main()
         Meta.brightness = Brightness.light;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: null,
             child: MetaSwitch(
                 value: false,
@@ -38,6 +39,7 @@ void main()
         Meta.brightness = Brightness.light;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: null,
             child: MetaSwitch(
                 value: true,
@@ -59,6 +61,7 @@ void main()
         Meta.brightness = Brightness.dark;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: null,
             child: MetaSwitch(
                 value: true,
@@ -80,6 +83,7 @@ void main()
         Meta.brightness = Brightness.light;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: TEST_COLOR,
             child: MetaSwitch(
                 value: true,
@@ -101,6 +105,7 @@ void main()
         Meta.brightness = Brightness.dark;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: TEST_COLOR,
             child: MetaSwitch(
                 value: true,

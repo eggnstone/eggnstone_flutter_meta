@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 
 class TestTools
 {
-    static Widget createMetaApp({@required Color primaryColor, @required Widget child})
+    static Widget createMetaApp({@required BuildContext context, @required Color primaryColor, @required Widget child})
     {
         assert(child != null);
 
@@ -14,7 +14,7 @@ class TestTools
             home: MetaScaffold(
                 body: child
             ),
-            theme: MetaThemeData.createMaterialTheme(createDarkTheme: false, color: primaryColor),
+            theme: MetaThemeData.createMaterialTheme(context: context, createDarkTheme: false, color: primaryColor),
         );
     }
 }

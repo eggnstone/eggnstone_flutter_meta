@@ -20,6 +20,7 @@ void main()
         Meta.brightness = Brightness.light;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: null,
             child: MetaRaisedTextButton(
                 text: TEST_TEXT,
@@ -40,6 +41,7 @@ void main()
         Meta.brightness = Brightness.light;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: null,
             child: MetaRaisedTextButton(
                 text: TEST_TEXT,
@@ -61,6 +63,7 @@ void main()
         Meta.brightness = Brightness.dark;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: null,
             child: MetaRaisedTextButton(
                 text: TEST_TEXT,
@@ -82,6 +85,7 @@ void main()
         Meta.brightness = Brightness.light;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: TEST_COLOR_LIGHT,
             child: MetaRaisedTextButton(
                 text: TEST_TEXT,
@@ -103,6 +107,7 @@ void main()
         Meta.brightness = Brightness.dark;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: TEST_COLOR_LIGHT,
             child: MetaRaisedTextButton(
                 text: TEST_TEXT,
@@ -124,6 +129,7 @@ void main()
         Meta.brightness = Brightness.light;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: TEST_COLOR_DARK,
             child: MetaRaisedTextButton(
                 text: TEST_TEXT,
@@ -145,6 +151,7 @@ void main()
         Meta.brightness = Brightness.dark;
 
         Widget testWidget = TestTools.createMetaApp(
+            context: null,
             primaryColor: TEST_COLOR_DARK,
             child: MetaRaisedTextButton(
                 text: TEST_TEXT,
