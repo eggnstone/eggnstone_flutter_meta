@@ -9,8 +9,8 @@ class MetaThemeData
         @required BuildContext context,
         @required bool createDarkTheme,
         @required Color color,
-        Color appBarContentColorLight,
-        Color appBarContentColorDark,
+        //Color appBarContentColorLight,
+        //lor appBarContentColorDark,
         TextStyle textStyleBody1,
         TextStyle textStyleButton,
         TextStyle textStyleSubhead,
@@ -22,8 +22,8 @@ class MetaThemeData
             context: context,
             brightness: Meta.brightness == null ? createDarkTheme ? Brightness.dark : Brightness.light : Meta.brightness,
             color: color,
-            appBarContentColorLight: appBarContentColorLight,
-            appBarContentColorDark: appBarContentColorDark,
+            //appBarContentColorLight: appBarContentColorLight,
+            //appBarContentColorDark: appBarContentColorDark,
             textStyleBody1: textStyleBody1,
             textStyleButton: textStyleButton,
             textStyleSubhead: textStyleSubhead,
@@ -34,8 +34,8 @@ class MetaThemeData
         @required BuildContext context,
         @required Brightness brightness,
         @required Color color,
-        Color appBarContentColorLight,
-        Color appBarContentColorDark,
+        //Color appBarContentColorLight,
+        //Color appBarContentColorDark,
         TextStyle textStyleBody1,
         TextStyle textStyleButton,
         TextStyle textStyleSubhead,
@@ -52,8 +52,11 @@ class MetaThemeData
             brightness: brightness,
 
             appBarTheme: AppBarTheme(
-                textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark)),
-                iconTheme: IconThemeData(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark),
+                //textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark)),
+                // Caution: also influences icons (but not the text) in popup menus which should always be black/white when brightness is light/dark.
+                //iconTheme: IconThemeData(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark),
+                textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)),
+                iconTheme: IconThemeData(color: brightness == Brightness.light ? Colors.black : Colors.white),
             ),
 
             // TextField-Material base line in dark mode
