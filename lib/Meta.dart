@@ -24,10 +24,28 @@ class Meta
         if (brightness == Brightness.dark)
             return true;
 
-        Brightness platformBrightness = MediaQuery
-            .of(context)
-            .platformBrightness;
+        if (context == null)
+        {
+            print('################################################################################');
+            print('# Meta.isDark: called with null context!');
+            print('################################################################################');
+            return false;
+        }
 
-        return platformBrightness == Brightness.dark;
+        try
+        {
+            Brightness platformBrightness = MediaQuery
+                .of(context)
+                .platformBrightness;
+
+            return platformBrightness == Brightness.dark;
+        }
+        catch (exception)
+        {
+            print('################################################################################');
+            print('# Meta.isDark: $exception');
+            print('################################################################################');
+            return false;
+        }
     }
 }
