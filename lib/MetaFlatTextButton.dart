@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Meta.dart';
+import 'MetaStringTools.dart';
 
 class MetaFlatTextButton extends StatelessWidget
 {
@@ -27,7 +28,7 @@ class MetaFlatTextButton extends StatelessWidget
             );
 
         return FlatButton(
-            child: Text(text.toUpperCase(), style: TextStyle(color: textColor)),
+            child: Text(MetaStringTools.toUpperCase(text), style: TextStyle(color: textColor)),
             textColor: textColor,
             onPressed: onPressed,
         );

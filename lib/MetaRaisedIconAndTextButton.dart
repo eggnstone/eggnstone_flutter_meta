@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Meta.dart';
+import 'MetaStringTools.dart';
 
 class MetaRaisedIconAndTextButton extends StatelessWidget
 {
@@ -16,7 +17,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
         this.icon,
         this.text,
         this.textColor,
-        this.onPressed,
+        this.onPressed
     });
 
     @override
@@ -37,13 +38,13 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                     children: <Widget>[
                         actualIcon,
                         SizedBox(width: 16),
-                        Text(text, style: actualTextStyle),
+                        Text(text, style: actualTextStyle)
                     ]
                 ),
                 color: actualColor,
                 minSize: 1.0,
                 onPressed: onPressed,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
             );
         }
 
@@ -60,12 +61,12 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                 children: <Widget>[
                     actualIcon,
                     SizedBox(width: 16),
-                    Text(text.toUpperCase()),
+                    Text(MetaStringTools.toUpperCase(text))
                 ]
             ),
             color: actualColor,
             onPressed: onPressed,
-            textColor: actualContentColor,
+            textColor: actualContentColor
         );
     }
 }

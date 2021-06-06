@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Meta.dart';
+import 'MetaStringTools.dart';
 
 class MetaAlertDialogButton extends StatelessWidget
 {
@@ -26,6 +27,6 @@ class MetaAlertDialogButton extends StatelessWidget
         if (Meta.isDesignCupertino)
             return CupertinoDialogAction(child: Text(text), isDestructiveAction: isDestructiveAction, onPressed: onPressed);
 
-        return FlatButton(onPressed: onPressed, child: Text(text.toUpperCase()));
+        return FlatButton(onPressed: onPressed, child: Text(MetaStringTools.toUpperCase(text)));
     }
 }

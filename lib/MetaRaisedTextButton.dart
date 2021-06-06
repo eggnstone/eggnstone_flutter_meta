@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Meta.dart';
+import 'MetaStringTools.dart';
 
 class MetaRaisedTextButton extends StatelessWidget
 {
@@ -14,7 +15,7 @@ class MetaRaisedTextButton extends StatelessWidget
         this.color,
         this.text,
         this.textColor,
-        this.onPressed,
+        this.onPressed
     });
 
     @override
@@ -32,7 +33,7 @@ class MetaRaisedTextButton extends StatelessWidget
                 color: actualColor,
                 minSize: 1.0,
                 onPressed: onPressed,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
             );
         }
 
@@ -41,10 +42,10 @@ class MetaRaisedTextButton extends StatelessWidget
         Color actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
 
         return RaisedButton(
-            child: Text(text.toUpperCase()),
+            child: Text(MetaStringTools.toUpperCase(text)),
             color: actualColor,
             onPressed: onPressed,
-            textColor: actualContentColor,
+            textColor: actualContentColor
         );
     }
 }
