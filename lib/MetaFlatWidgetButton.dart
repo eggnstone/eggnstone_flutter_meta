@@ -5,10 +5,10 @@ import 'Meta.dart';
 
 class MetaFlatWidgetButton extends StatelessWidget
 {
-    final Widget child;
+    final Widget? child;
 
     //final Color color;
-    final VoidCallback onPressed;
+    final VoidCallback? onPressed;
 
     //final Color textColor;
 
@@ -26,14 +26,14 @@ class MetaFlatWidgetButton extends StatelessWidget
             return CupertinoButton(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 minSize: 1.0,
-                child: child,
+                child: child!,
                 //color: color,
                 onPressed: onPressed,
                 //textColor: textColor
             );
 
         return FlatButton(
-            child: child,
+            child: child!,
             //color: color,
             onPressed: onPressed,
             //textColor: textColor

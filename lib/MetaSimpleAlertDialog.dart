@@ -8,14 +8,14 @@ import 'MetaAlertDialogButton.dart';
 
 class MetaSimpleAlertDialog
 {
-    static Future<T> show<T>({
-        @required BuildContext context,
-        String title,
-        String content,
-        String dismissText,
-        String confirmText,
-        Function dismissAction,
-        Function confirmAction,
+    static Future<T?> show<T>({
+        required BuildContext context,
+        String? title,
+        String? content,
+        String? dismissText,
+        String? confirmText,
+        Function? dismissAction,
+        Function? confirmAction,
         bool isDestructiveAction = false
     })
     {
@@ -24,10 +24,10 @@ class MetaSimpleAlertDialog
         // TODO: upper case?
 
         if (dismissText != null)
-            actions.add(MetaAlertDialogButton(text: dismissText, onPressed: dismissAction));
+            actions.add(MetaAlertDialogButton(text: dismissText, onPressed: dismissAction as void Function()?));
 
         if (confirmText != null)
-            actions.add(MetaAlertDialogButton(text: confirmText, isDestructiveAction: isDestructiveAction, onPressed: confirmAction));
+            actions.add(MetaAlertDialogButton(text: confirmText, isDestructiveAction: isDestructiveAction, onPressed: confirmAction as void Function()?));
 
         return showDialog(
             context: context,
@@ -40,14 +40,14 @@ class MetaSimpleAlertDialog
         );
     }
 
-    static Future<T> showWithWidgets<T>({
-        @required BuildContext context,
-        Widget title,
-        Widget content,
-        String dismissText,
-        String confirmText,
-        Function dismissAction,
-        Function confirmAction,
+    static Future<T?> showWithWidgets<T>({
+        required BuildContext context,
+        Widget? title,
+        Widget? content,
+        String? dismissText,
+        String? confirmText,
+        Function? dismissAction,
+        Function? confirmAction,
         bool isDestructiveAction = false
     })
     {
@@ -56,10 +56,10 @@ class MetaSimpleAlertDialog
         // TODO: upper case?
 
         if (dismissText != null)
-            actions.add(MetaAlertDialogButton(text: dismissText, onPressed: dismissAction));
+            actions.add(MetaAlertDialogButton(text: dismissText, onPressed: dismissAction as void Function()?));
 
         if (confirmText != null)
-            actions.add(MetaAlertDialogButton(text: confirmText, isDestructiveAction: isDestructiveAction, onPressed: confirmAction));
+            actions.add(MetaAlertDialogButton(text: confirmText, isDestructiveAction: isDestructiveAction, onPressed: confirmAction as void Function()?));
 
         return showDialog(context: context, builder: (BuildContext context)
         => MetaAlertDialog(title: title, content: content, actions: actions));

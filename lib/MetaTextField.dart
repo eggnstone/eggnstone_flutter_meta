@@ -9,18 +9,18 @@ class MetaTextField extends StatelessWidget
     /// [decorationMaterial] Cupertino: use placeholderCupertino
     /// [placeholderCupertino] Non-Cupertino: use decorationMaterial
     final bool autofocus;
-    final TextEditingController controller;
-    final InputDecoration decorationMaterial;
-    final bool enabled;
+    final TextEditingController? controller;
+    final InputDecoration? decorationMaterial;
+    final bool? enabled;
     final bool expands;
-    final FocusNode focusNode;
-    final TextInputType keyboardType;
-    final int maxLines;
-    final int minLines;
+    final FocusNode? focusNode;
+    final TextInputType? keyboardType;
+    final int? maxLines;
+    final int? minLines;
     final bool obscureText;
-    final ValueChanged<String> onSubmitted;
-    final String placeholderCupertino;
-    final TextStyle style;
+    final ValueChanged<String>? onSubmitted;
+    final String? placeholderCupertino;
+    final TextStyle? style;
     final TextCapitalization textCapitalization;
 
     MetaTextField({

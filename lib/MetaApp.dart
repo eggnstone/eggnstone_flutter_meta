@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class MetaApp extends MaterialApp
 {
     MetaApp({
-        Widget home,
-        ThemeData theme,
+        Widget? home,
+        ThemeData? theme,
     })
         : super(
         home: home,

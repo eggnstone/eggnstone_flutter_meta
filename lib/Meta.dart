@@ -7,8 +7,8 @@ import 'MetaDesign.dart';
 
 class Meta
 {
-    static MetaDesign forceDesign;
-    static Brightness brightness;
+    static MetaDesign? forceDesign;
+    static Brightness? brightness;
 
     static bool get isDesignCupertino
     => Platform.isIOS || forceDesign == MetaDesign.Cupertino;

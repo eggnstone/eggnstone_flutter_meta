@@ -5,10 +5,10 @@ import 'PaddingConsts.dart';
 
 class NormalPadding extends StatelessWidget
 {
-    final Widget child;
+    final Widget? child;
 
     const NormalPadding({
-        Key key,
+        Key? key,
         this.child
     }) : super(key: key);
 

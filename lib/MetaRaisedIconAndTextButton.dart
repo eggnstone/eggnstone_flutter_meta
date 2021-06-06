@@ -6,15 +6,15 @@ import 'MetaStringTools.dart';
 
 class MetaRaisedIconAndTextButton extends StatelessWidget
 {
-    final Color color;
+    final Color? color;
     final Icon icon;
-    final String text;
-    final Color textColor;
-    final VoidCallback onPressed;
+    final String? text;
+    final Color? textColor;
+    final VoidCallback? onPressed;
 
     MetaRaisedIconAndTextButton({
         this.color,
-        this.icon,
+        required this.icon,
         this.text,
         this.textColor,
         this.onPressed
@@ -26,10 +26,10 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
         if (Meta.isDesignCupertino)
         {
             CupertinoThemeData theme = CupertinoTheme.of(context);
-            Color actualColor = color == null ? theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300] : color;
-            Color actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
-            TextStyle actualTextStyle = actualContentColor == null ? null : theme.textTheme.textStyle.copyWith(color: actualContentColor);
-            Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size, color: actualContentColor) : icon;
+            Color? actualColor = color == null ? theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300] : color;
+            Color? actualContentColor = textColor == null ? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+            TextStyle? actualTextStyle = actualContentColor == null ? null : theme.textTheme.textStyle.copyWith(color: actualContentColor);
+            Icon actualIcon = icon!.color == null ? Icon(icon!.icon, size: icon!.size, color: actualContentColor) : icon;
 
             return CupertinoButton(
                 child: Row(
@@ -38,7 +38,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                     children: <Widget>[
                         actualIcon,
                         SizedBox(width: 16),
-                        Text(text, style: actualTextStyle)
+                        Text(text!, style: actualTextStyle)
                     ]
                 ),
                 color: actualColor,
@@ -49,9 +49,9 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
         }
 
         ThemeData materialTheme = Theme.of(context);
-        Color actualColor = color == null ? materialTheme.buttonColor : color;
-        Color actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
-        Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size, color: actualContentColor) : icon;
+        Color? actualColor = color == null ? materialTheme.buttonColor : color;
+        Color? actualContentColor = textColor == null ? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+        Icon? actualIcon = icon!.color == null ? Icon(icon!.icon, size: icon!.size, color: actualContentColor) : icon;
 
         return RaisedButton(
 
@@ -61,7 +61,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                 children: <Widget>[
                     actualIcon,
                     SizedBox(width: 16),
-                    Text(MetaStringTools.toUpperCase(text))
+                    Text(MetaStringTools.toUpperCase(text)!)
                 ]
             ),
             color: actualColor,

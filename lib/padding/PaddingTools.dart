@@ -20,7 +20,7 @@ class PaddingTools
         {
             bool wasExpanded = widget is Expanded;
             if (wasExpanded)
-                widget = (widget as Expanded).child;
+                widget = widget.child;
 
             _addChildToColumnChildren(newChildren, widget, makeChildExpanded: wasExpanded);
         }

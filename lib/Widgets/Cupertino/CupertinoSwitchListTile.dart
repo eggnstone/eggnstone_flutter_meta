@@ -4,11 +4,11 @@ import '../SimpleListTile.dart';
 
 class CupertinoSwitchListTile extends StatelessWidget
 {
-    final Widget title;
-    final Widget subtitle;
-    final bool value;
-    final ValueChanged<bool> onChanged;
-    final Color activeColor;
+    final Widget? title;
+    final Widget? subtitle;
+    final bool? value;
+    final ValueChanged<bool>? onChanged;
+    final Color? activeColor;
 
     CupertinoSwitchListTile({
         this.title,
@@ -25,7 +25,7 @@ class CupertinoSwitchListTile extends StatelessWidget
             title: title,
             subtitle: subtitle,
             trailing: CupertinoSwitch(
-                value: value,
+                value: value!,
                 onChanged: onChanged,
                 activeColor: activeColor
             )

@@ -11,11 +11,11 @@ import 'Meta.dart';
 /// to separate the content from the other edges of the dialog.
 class MetaAlertDialog extends StatelessWidget
 {
-    final Widget title;
-    final EdgeInsetsGeometry overrideMaterialDefaultTitlePadding;
-    final Widget content;
-    final EdgeInsetsGeometry overrideMaterialDefaultContentPadding;
-    final List<Widget> actions;
+    final Widget? title;
+    final EdgeInsetsGeometry? overrideMaterialDefaultTitlePadding;
+    final Widget? content;
+    final EdgeInsetsGeometry? overrideMaterialDefaultContentPadding;
+    final List<Widget>? actions;
 
     MetaAlertDialog({
         this.title,
@@ -31,11 +31,11 @@ class MetaAlertDialog extends StatelessWidget
     @override
     Widget build(BuildContext context)
     {
-        Widget actualTitle = title;
+        Widget? actualTitle = title;
         //actualTitle = actualTitle == null ? null : BorderedContainer(child: actualTitle);
         //actualTitle = actualTitle == null ? null : Container(child: actualTitle, foregroundDecoration: BoxDecoration(color: Color.fromARGB(50, 255, 0, 0)));
 
-        Widget actualContent = content;
+        Widget? actualContent = content;
         //actualContent = actualContent == null ? null : BorderedContainer(child: actualContent);
         //actualContent = actualContent == null ? null : Container(child: actualContent, foregroundDecoration: BoxDecoration(color: Color.fromARGB(50, 255, 0, 0)));
 
@@ -46,11 +46,11 @@ class MetaAlertDialog extends StatelessWidget
                 // has no titlePadding
                 content: actualContent,
                 // has no contentPadding
-                actions: actions
+                actions: actions!
             );
 
         // contentPadding must not be null hence putting in the default here
-        EdgeInsetsGeometry actualMaterialContentPadding = overrideMaterialDefaultContentPadding == null ? const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0) : overrideMaterialDefaultContentPadding;
+        EdgeInsetsGeometry actualMaterialContentPadding = overrideMaterialDefaultContentPadding == null ? const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0) : overrideMaterialDefaultContentPadding!;
 
         return AlertDialog(
             title: actualTitle,

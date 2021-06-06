@@ -7,10 +7,10 @@ import 'Widgets/Material/MaterialSwitchListTile.dart';
 
 class MetaSwitchListTile extends StatelessWidget
 {
-    final ValueChanged<bool> onChanged;
-    final Widget subtitle;
-    final Widget title;
-    final bool value;
+    final ValueChanged<bool>? onChanged;
+    final Widget? subtitle;
+    final Widget? title;
+    final bool? value;
 
     MetaSwitchListTile({
         this.onChanged,

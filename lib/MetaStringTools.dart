@@ -1,6 +1,6 @@
 class MetaStringTools
 {
-    static String toUpperCase(String s)
+    static String? toUpperCase(String? s)
     {
         if (s == null)
             return null;

@@ -5,10 +5,10 @@ import 'PaddingConsts.dart';
 
 class CardPadding extends StatelessWidget
 {
-    final Widget child;
+    final Widget? child;
 
     const CardPadding({
-        Key key,
+        Key? key,
         this.child
     }) : super(key: key);
 

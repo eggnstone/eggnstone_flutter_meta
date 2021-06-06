@@ -6,9 +6,9 @@ import 'Widgets/Cupertino/CupertinoMaxSizeAlertDialog.dart';
 
 class MetaMaxSizeAlertDialog extends StatelessWidget
 {
-    final Widget title;
-    final Widget content;
-    final List<Widget> actions;
+    final Widget? title;
+    final Widget? content;
+    final List<Widget>? actions;
 
     MetaMaxSizeAlertDialog({
         this.title,
@@ -21,11 +21,11 @@ class MetaMaxSizeAlertDialog extends StatelessWidget
     @override
     Widget build(BuildContext context)
     {
-        Widget actualTitle = title;
+        Widget? actualTitle = title;
         //actualTitle = actualTitle == null ? null : BorderedContainer(child: actualTitle);
         //actualTitle = actualTitle == null ? null : Container(child: actualTitle, foregroundDecoration: BoxDecoration(color: Color.fromARGB(50, 255, 0, 0)));
 
-        Widget actualContent = content;
+        Widget? actualContent = content;
         //actualContent = actualContent == null ? null : BorderedContainer(child: actualContent);
         //actualContent = actualContent == null ? null : Container(child: actualContent, foregroundDecoration: BoxDecoration(color: Color.fromARGB(50, 255, 0, 0)));
 

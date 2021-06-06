@@ -5,10 +5,10 @@ import 'PaddingConsts.dart';
 
 class MetaRaisedButtonPadding extends StatelessWidget
 {
-    final Widget child;
+    final Widget? child;
 
     const MetaRaisedButtonPadding({
-        Key key,
+        Key? key,
         this.child
     }) : super(key: key);
 

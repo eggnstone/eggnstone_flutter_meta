@@ -9,9 +9,9 @@ class MetaSwitch extends StatelessWidget
     final ValueChanged<bool> onChanged;
 
     const MetaSwitch({
-        Key key,
-        @required this.value,
-        @required this.onChanged
+        Key? key,
+        required this.value,
+        required this.onChanged
     })
         : assert(value != null),
             super(key: key);

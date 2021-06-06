@@ -4,11 +4,11 @@ import '../SimpleListTile.dart';
 
 class MaterialSwitchListTile extends StatelessWidget
 {
-    final Widget title;
-    final Widget subtitle;
-    final bool value;
-    final ValueChanged<bool> onChanged;
-    final Color activeColor;
+    final Widget? title;
+    final Widget? subtitle;
+    final bool? value;
+    final ValueChanged<bool>? onChanged;
+    final Color? activeColor;
 
     MaterialSwitchListTile({
         this.title,
@@ -26,7 +26,7 @@ class MaterialSwitchListTile extends StatelessWidget
             subtitle: subtitle,
             trailing: Switch(
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                value: value,
+                value: value!,
                 onChanged: onChanged,
                 activeColor: activeColor
             )

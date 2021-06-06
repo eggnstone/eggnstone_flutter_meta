@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class CupertinoAlertDialogButtonBackground extends StatefulWidget
 {
-    final Widget child;
-    final Color pressedColor;
+    final Widget? child;
+    final Color? pressedColor;
 
     CupertinoAlertDialogButtonBackground({
         this.child,

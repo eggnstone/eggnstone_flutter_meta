@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 
 class TestTools
 {
-    static Widget createMetaApp({@required BuildContext context, @required Color primaryColor, @required Widget child})
+    static Widget createMetaApp({required BuildContext? context, required Color? primaryColor, required Widget child})
     {
         assert(child != null);
 

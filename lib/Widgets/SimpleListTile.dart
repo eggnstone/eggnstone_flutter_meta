@@ -2,9 +2,9 @@ import 'package:flutter/widgets.dart';
 
 class SimpleListTile extends StatelessWidget
 {
-    final Widget title;
-    final Widget subtitle;
-    final Widget trailing;
+    final Widget? title;
+    final Widget? subtitle;
+    final Widget? trailing;
 
     SimpleListTile({
         this.title,
@@ -15,8 +15,8 @@ class SimpleListTile extends StatelessWidget
     @override
     Widget build(BuildContext context)
     {
-        List<Widget> rowChildren = [];
-        List<Widget> columnChildren = [];
+        List<Widget?> rowChildren = [];
+        List<Widget?> columnChildren = [];
 
         if (title != null)
             columnChildren.add(title);
@@ -27,7 +27,7 @@ class SimpleListTile extends StatelessWidget
         if (columnChildren.length == 0)
             rowChildren.add(Expanded(child: Container()));
         else
-            rowChildren.add(Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: columnChildren)));
+            rowChildren.add(Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: columnChildren as List<Widget>)));
 
         if (trailing != null)
             rowChildren.add(trailing);
@@ -35,6 +35,6 @@ class SimpleListTile extends StatelessWidget
         if (columnChildren.length == 0)
             return Container();
 
-        return Row(children: rowChildren);
+        return Row(children: rowChildren as List<Widget>);
     }
 }

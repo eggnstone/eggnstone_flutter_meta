@@ -48,9 +48,9 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
     static const Color _kDialogPressedColor_LightTheme = Color(0xFFF5F5F5);
     static const Color _kDialogPressedColor_DarkTheme = Color(0xFFACACAC);
 
-    final Widget title;
-    final Widget content;
-    final List<Widget> actions;
+    final Widget? title;
+    final Widget? content;
+    final List<Widget>? actions;
 
     CupertinoMaxSizeAlertDialog({
         this.title,
@@ -76,7 +76,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                             child: DefaultTextStyle(
                                 style: _kCupertinoDialogTitleStyle,
                                 textAlign: TextAlign.center,
-                                child: title
+                                child: title!
                             )
                         ),
                         Expanded(
@@ -84,7 +84,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                                 padding: const EdgeInsets.only(left: 20.0, top: 2.0, right: 20.0),
                                 child: DefaultTextStyle(
                                     style: _kCupertinoDialogContentStyle,
-                                    child: content
+                                    child: content!
                                 )
                             )
                         ),
@@ -103,7 +103,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                                                 children: <Widget>[
                                                     Expanded(
                                                         child: CupertinoAlertDialogButtonBackground(
-                                                            child: actions[0],
+                                                            child: actions![0],
                                                             pressedColor: pressedBackgroundColor
                                                         )
                                                     ),
@@ -115,7 +115,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                                                     ),
                                                     Expanded(
                                                         child: CupertinoAlertDialogButtonBackground(
-                                                            child: actions[1],
+                                                            child: actions![1],
                                                             pressedColor: pressedBackgroundColor
                                                         )
                                                     )

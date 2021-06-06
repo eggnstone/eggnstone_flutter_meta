@@ -6,21 +6,21 @@ import 'Meta.dart';
 class MetaThemeData
 {
     static ThemeData createMaterialTheme({
-        @required BuildContext context,
-        @required bool createDarkTheme,
-        @required Color color,
+        required BuildContext? context,
+        required bool createDarkTheme,
+        required Color? color,
         //Color appBarContentColorLight,
         //lor appBarContentColorDark,
-        TextStyle textStyleBody1,
-        TextStyle textStyleButton,
-        TextStyle textStyleSubhead,
+        TextStyle? textStyleBody1,
+        TextStyle? textStyleButton,
+        TextStyle? textStyleSubhead,
     })
     {
         assert(createDarkTheme != null);
 
         return createMaterialThemeWithBrightness(
             context: context,
-            brightness: Meta.brightness == null ? createDarkTheme ? Brightness.dark : Brightness.light : Meta.brightness,
+            brightness: Meta.brightness == null ? createDarkTheme ? Brightness.dark : Brightness.light : Meta.brightness!,
             color: color,
             //appBarContentColorLight: appBarContentColorLight,
             //appBarContentColorDark: appBarContentColorDark,
@@ -31,22 +31,22 @@ class MetaThemeData
     }
 
     static ThemeData createMaterialThemeWithBrightness({
-        @required BuildContext context,
-        @required Brightness brightness,
-        @required Color color,
+        required BuildContext? context,
+        required Brightness brightness,
+        required Color? color,
         //Color appBarContentColorLight,
         //Color appBarContentColorDark,
-        TextStyle textStyleBody1,
-        TextStyle textStyleButton,
-        TextStyle textStyleSubhead,
+        TextStyle? textStyleBody1,
+        TextStyle? textStyleButton,
+        TextStyle? textStyleSubhead,
     })
     {
         assert(brightness != null);
 
-        final MaterialColor materialColor = ColorTools.createMaterialColor(color);
+        final MaterialColor? materialColor = ColorTools.createMaterialColor(color);
 
-        ThemeData theme = context == null ? null : Theme.of(context);
-        TextTheme textTheme = theme?.textTheme;
+        ThemeData? theme = context == null ? null : Theme.of(context);
+        TextTheme? textTheme = theme?.textTheme;
 
         return ThemeData(
             brightness: brightness,
@@ -55,7 +55,7 @@ class MetaThemeData
                 //textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark)),
                 // Caution: also influences icons (but not the text) in popup menus which should always be black/white when brightness is light/dark.
                 //iconTheme: IconThemeData(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark),
-                textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)),
+                textTheme: textTheme?.copyWith(title: textTheme.title!.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)),
                 iconTheme: IconThemeData(color: brightness == Brightness.light ? Colors.black : Colors.white),
             ),
 

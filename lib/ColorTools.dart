@@ -13,7 +13,7 @@ class ColorTools
         return hslDark.toColor();
     }
 
-    static MaterialColor createMaterialColor(Color color)
+    static MaterialColor? createMaterialColor(Color? color)
     {
         if (color == null)
             return null;
