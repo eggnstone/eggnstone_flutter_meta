@@ -55,7 +55,7 @@ class MetaThemeData
                 //textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark)),
                 // Caution: also influences icons (but not the text) in popup menus which should always be black/white when brightness is light/dark.
                 //iconTheme: IconThemeData(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark),
-                textTheme: textTheme?.copyWith(title: textTheme.title!.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)),
+                textTheme: textTheme?.copyWith(headline6: textTheme.headline6!.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)),
                 iconTheme: IconThemeData(color: brightness == Brightness.light ? Colors.black : Colors.white),
             ),
 
@@ -75,9 +75,9 @@ class MetaThemeData
             toggleableActiveColor: color,
 
             textTheme: TextTheme(
-                body1: textStyleBody1,
+                bodyText2: textStyleBody1,
                 button: textStyleButton,
-                subhead: textStyleSubhead,
+                subtitle1: textStyleSubhead,
             ),
         );
     }
