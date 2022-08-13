@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,6 @@ class MetaAlertDialogButton extends StatelessWidget
     })
     {
         assert(text != null);
-        assert(isDestructiveAction != null);
         assert(onPressed != null);
     }
 

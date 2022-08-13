@@ -16,8 +16,6 @@ class MetaThemeData
         TextStyle? textStyleSubhead,
     })
     {
-        assert(createDarkTheme != null);
-
         return createMaterialThemeWithBrightness(
             context: context,
             brightness: Meta.brightness == null ? createDarkTheme ? Brightness.dark : Brightness.light : Meta.brightness!,
@@ -41,8 +39,6 @@ class MetaThemeData
         TextStyle? textStyleSubhead,
     })
     {
-        assert(brightness != null);
-
         final MaterialColor? materialColor = ColorTools.createMaterialColor(color);
 
         ThemeData? theme = context == null ? null : Theme.of(context);

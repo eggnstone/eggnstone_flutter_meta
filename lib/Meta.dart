@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+
 
 import 'MetaDesign.dart';
 
@@ -23,14 +23,6 @@ class Meta
 
         if (brightness == Brightness.dark)
             return true;
-
-        if (context == null)
-        {
-            print('################################################################################');
-            print('# Meta.isDark: called with null context!');
-            print('################################################################################');
-            return false;
-        }
 
         try
         {

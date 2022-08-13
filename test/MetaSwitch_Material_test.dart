@@ -2,7 +2,7 @@ import 'package:eggnstone_flutter_meta/Meta.dart';
 import 'package:eggnstone_flutter_meta/MetaDesign.dart';
 import 'package:eggnstone_flutter_meta/MetaSwitch.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 
 import 'TestTools.dart';

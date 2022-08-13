@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,7 @@ class MetaSwitch extends StatelessWidget
         required this.value,
         required this.onChanged
     })
-        : assert(value != null),
-            super(key: key);
+        :             super(key: key);
 
     @override
     Widget build(BuildContext context)
