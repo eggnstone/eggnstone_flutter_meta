@@ -54,8 +54,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
         Color? actualContentColor = textColor == null ? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
         Icon? actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size, color: actualContentColor) : icon;
 
-        return RaisedButton(
-
+        return ElevatedButton(
             child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,9 +64,9 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                     Text(MetaStringTools.toUpperCase(text)!)
                 ]
             ),
-            color: actualColor,
+            //TODO migrate: color: actualColor,
             onPressed: onPressed,
-            textColor: actualContentColor
+            //TODO migrate: textColor: actualContentColor
         );
     }
 }

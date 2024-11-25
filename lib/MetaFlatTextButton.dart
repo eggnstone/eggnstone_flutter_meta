@@ -28,9 +28,9 @@ class MetaFlatTextButton extends StatelessWidget
                 onPressed: onPressed,
             );
 
-        return FlatButton(
+        return TextButton(
             child: Text(MetaStringTools.toUpperCase(text)!, style: TextStyle(color: textColor)),
-            textColor: textColor,
+            //TODO migrate: textColor: textColor,
             onPressed: onPressed,
         );
     }

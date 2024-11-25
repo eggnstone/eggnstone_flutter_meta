@@ -44,7 +44,7 @@ class MetaRaisedButton extends StatelessWidget
         Color actualColor = color == null ? materialTheme.buttonColor : color;
         Color actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
 
-        return RaisedButton(
+        return ElevatedButton(
             child: child,
             color: actualColor,
             onPressed: onPressed,

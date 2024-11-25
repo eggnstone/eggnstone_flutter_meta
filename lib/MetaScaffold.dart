@@ -89,7 +89,7 @@ class MetaScaffold extends StatelessWidget
                 leading: Text('mat lead'), // cancelIcon ?? Icon(Icons.device_unknown),
                 title: Text(title ?? 'mat title'),
                 actions: <Widget>[
-                    FlatButton(
+                    TextButton(
                         child: Text((confirmText ?? 'mat action').toUpperCase()),
                         onPressed: ()
                         {}

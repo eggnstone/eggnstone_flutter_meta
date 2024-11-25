@@ -31,7 +31,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        expect(find.byType(RaisedButton), findsOneWidget);
+        expect(find.byType(ElevatedButton), findsOneWidget);
     });
 
     testWidgets('MetaRaisedTextButton_Material_DefaultColor_LightTheme', (WidgetTester tester)
@@ -52,7 +52,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Material/DefaultColor_LightTheme.png'));
     });
 
@@ -74,7 +74,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Material/DefaultColor_DarkTheme.png'));
     });
 
@@ -96,7 +96,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Material/LightColor_LightTheme.png'));
     });
 
@@ -118,7 +118,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Material/LightColor_DarkTheme.png'));
     });
 
@@ -140,7 +140,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Material/DarkColor_LightTheme.png'));
     });
 
@@ -162,7 +162,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedTextButton/Material/DarkColor_DarkTheme.png'));
     });
 }

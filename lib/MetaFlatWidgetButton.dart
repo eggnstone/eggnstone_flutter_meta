@@ -33,7 +33,7 @@ class MetaFlatWidgetButton extends StatelessWidget
                 //textColor: textColor
             );
 
-        return FlatButton(
+        return TextButton(
             child: child!,
             //color: color,
             onPressed: onPressed,

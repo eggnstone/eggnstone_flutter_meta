@@ -33,7 +33,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        expect(find.byType(RaisedButton), findsOneWidget);
+        expect(find.byType(ElevatedButton), findsOneWidget);
     });
 
     testWidgets('MetaRaisedIconAndTextButton_Material_DefaultColor_LightTheme', (WidgetTester tester)
@@ -55,7 +55,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/DefaultColor_LightTheme.png'));
     });
 
@@ -78,7 +78,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/DefaultColor_DarkTheme.png'));
     });
 
@@ -101,7 +101,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/LightColor_LightTheme.png'));
     });
 
@@ -124,7 +124,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/LightColor_DarkTheme.png'));
     });
 
@@ -147,7 +147,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/DarkColor_LightTheme.png'));
     });
 
@@ -170,7 +170,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(RaisedButton);
+        Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/DarkColor_DarkTheme.png'));
     });
 }

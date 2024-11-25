@@ -27,6 +27,6 @@ class MetaAlertDialogButton extends StatelessWidget
         if (Meta.isDesignCupertino)
             return CupertinoDialogAction(child: Text(text!), isDestructiveAction: isDestructiveAction, onPressed: onPressed);
 
-        return FlatButton(onPressed: onPressed, child: Text(MetaStringTools.toUpperCase(text)!));
+        return TextButton(onPressed: onPressed, child: Text(MetaStringTools.toUpperCase(text)!));
     }
 }
