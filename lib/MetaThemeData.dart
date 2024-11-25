@@ -51,30 +51,39 @@ class MetaThemeData
                 //textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark)),
                 // Caution: also influences icons (but not the text) in popup menus which should always be black/white when brightness is light/dark.
                 //iconTheme: IconThemeData(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark),
-                textTheme: textTheme?.copyWith(headline6: textTheme.headline6!.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)),
-                iconTheme: IconThemeData(color: brightness == Brightness.light ? Colors.black : Colors.white),
+                iconTheme: IconThemeData(color: brightness == Brightness.light ? Colors.black : Colors.white), toolbarTextStyle: textTheme?.copyWith(titleLarge: textTheme.titleLarge!.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)).bodyMedium, titleTextStyle: textTheme?.copyWith(titleLarge: textTheme.titleLarge!.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)).titleLarge,
             ),
-
-            // TextField-Material base line in dark mode
-            accentColor: color,
-            // text cursor
-            cursorColor: color,
             // AppBar-Material in dark mode
             primaryColor: color,
-            // shade500 is primary color, shade600 is used for buttons in dark mode
-            primarySwatch: materialColor,
-            // text selection handles
-            textSelectionHandleColor: color,
-            // selected text
-            textSelectionColor: color?.withOpacity(0.5),
-            // Switch-Material, Radio-Material, Checkbox-Material
-            toggleableActiveColor: color,
 
             textTheme: TextTheme(
-                bodyText2: textStyleBody1,
-                button: textStyleButton,
-                subtitle1: textStyleSubhead,
-            ),
+                bodyMedium: textStyleBody1,
+                labelLarge: textStyleButton,
+                titleMedium: textStyleSubhead,
+            ), textSelectionTheme: TextSelectionThemeData(cursorColor: color, selectionColor: color?.withOpacity(0.5), selectionHandleColor: color,), colorScheme: ColorScheme.fromSwatch(primarySwatch: materialColor).copyWith(secondary: color), checkboxTheme: CheckboxThemeData(
+ fillColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+ if (states.contains(WidgetState.disabled)) { return null; }
+ if (states.contains(WidgetState.selected)) { return color; }
+ return null;
+ }),
+ ), radioTheme: RadioThemeData(
+ fillColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+ if (states.contains(WidgetState.disabled)) { return null; }
+ if (states.contains(WidgetState.selected)) { return color; }
+ return null;
+ }),
+ ), switchTheme: SwitchThemeData(
+ thumbColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+ if (states.contains(WidgetState.disabled)) { return null; }
+ if (states.contains(WidgetState.selected)) { return color; }
+ return null;
+ }),
+ trackColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+ if (states.contains(WidgetState.disabled)) { return null; }
+ if (states.contains(WidgetState.selected)) { return color; }
+ return null;
+ }),
+ ),
         );
     }
 }

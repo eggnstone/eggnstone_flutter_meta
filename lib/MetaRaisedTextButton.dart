@@ -40,7 +40,7 @@ class MetaRaisedTextButton extends StatelessWidget
 
         ThemeData materialTheme = Theme.of(context);
         Color? actualColor = color == null ? materialTheme.buttonColor : color;
-        Color? actualContentColor = textColor == null ? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+        Color? actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
 
         return ElevatedButton(
             child: Text(MetaStringTools.toUpperCase(text)!),

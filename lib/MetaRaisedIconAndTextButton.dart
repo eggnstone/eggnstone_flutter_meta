@@ -51,7 +51,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
 
         ThemeData materialTheme = Theme.of(context);
         Color? actualColor = color == null ? materialTheme.buttonColor : color;
-        Color? actualContentColor = textColor == null ? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+        Color? actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
         Icon? actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size, color: actualContentColor) : icon;
 
         return ElevatedButton(
