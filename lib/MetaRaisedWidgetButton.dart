@@ -41,9 +41,9 @@ class MetaRaisedWidgetButton extends StatelessWidget
 
         return ElevatedButton(
             child: child,
-            //TODO migrate: color: actualColor,
+            color: actualColor,
             onPressed: onPressed,
-            //TODO migrate: textColor: actualContentColor
+            textColor: actualContentColor
         );
     }
 }

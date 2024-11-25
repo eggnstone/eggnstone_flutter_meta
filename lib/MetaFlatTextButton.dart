@@ -30,7 +30,7 @@ class MetaFlatTextButton extends StatelessWidget
 
         return TextButton(
             child: Text(MetaStringTools.toUpperCase(text)!, style: TextStyle(color: textColor)),
-            //TODO migrate: textColor: textColor,
+            textColor: textColor,
             onPressed: onPressed,
         );
     }

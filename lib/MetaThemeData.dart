@@ -58,15 +58,15 @@ class MetaThemeData
             // TextField-Material base line in dark mode
             accentColor: color,
             // text cursor
-            //TODO migrate: cursorColor: color,
+            cursorColor: color,
             // AppBar-Material in dark mode
             primaryColor: color,
             // shade500 is primary color, shade600 is used for buttons in dark mode
             primarySwatch: materialColor,
             // text selection handles
-            //TODO migrate: textSelectionHandleColor: color,
+            textSelectionHandleColor: color,
             // selected text
-            //TODO migrate: textSelectionColor: color?.withOpacity(0.5),
+            textSelectionColor: color?.withOpacity(0.5),
             // Switch-Material, Radio-Material, Checkbox-Material
             toggleableActiveColor: color,
 
