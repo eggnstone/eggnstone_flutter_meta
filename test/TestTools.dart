@@ -10,6 +10,10 @@ class TestTools
         home: Scaffold(
             body: child
         ),
-        theme: MetaThemeData.createMaterialTheme(context: context, createDarkTheme: false, color: primaryColor)
+        theme: MetaThemeData.createMaterialThemeWithBrightness(
+            brightness: Brightness.light,
+            color: primaryColor,
+            context: context 
+        )
     );
 }
