@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Meta.dart';
+import 'src/Meta.dart';
 import 'MetaStringTools.dart';
 
 class MetaFlatTextButton extends StatelessWidget

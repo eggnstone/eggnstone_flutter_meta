@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 
-import 'Meta.dart';
+import 'src/Meta.dart';
 import 'MetaThemeData.dart';
 
 class MetaCard extends StatelessWidget

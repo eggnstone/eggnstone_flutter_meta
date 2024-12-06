@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'Meta.dart';
-import 'Widgets/Cupertino/CupertinoMaxSizeAlertDialog.dart';
+import 'src/Meta.dart';
+import 'src/Widgets/Cupertino/CupertinoMaxSizeAlertDialog.dart';
 
 class MetaMaxSizeAlertDialog extends StatelessWidget
 {

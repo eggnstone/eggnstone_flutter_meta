@@ -1,7 +1,7 @@
 /// eggnstone_flutter_meta
 library;
 
-export 'Meta.dart';
+export 'src/Meta.dart';
 export 'MetaAlertDialog.dart';
 export 'MetaAlertDialogButton.dart';
 export 'MetaCard.dart';

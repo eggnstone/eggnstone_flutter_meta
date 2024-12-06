@@ -5,7 +5,7 @@ import 'package:eggnstone_dart/eggnstone_dart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Meta.dart';
+import 'src/Meta.dart';
 
 class MetaTextField extends StatelessWidget
 {

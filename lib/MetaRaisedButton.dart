@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_feel/flutter_native_feel.dart';
 
-import 'Meta.dart';
+import 'src/Meta.dart';
 
 class MetaRaisedButton extends StatelessWidget
 {
