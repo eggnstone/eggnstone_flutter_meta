@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'src/Meta.dart';
+import 'Meta.dart';
 
 class MetaRaisedWidgetButton extends StatelessWidget
 {
@@ -37,7 +37,7 @@ class MetaRaisedWidgetButton extends StatelessWidget
             );
         }
 
-        final ThemeData materialTheme = Theme.of(context);
+        // TODO: fix or not? final ThemeData materialTheme = Theme.of(context);
         // TODO: fix or not? final Color? actualColor = color ?? materialTheme.buttonColor;
         // TODO: fix or not? final Color? actualContentColor = textColor ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
 

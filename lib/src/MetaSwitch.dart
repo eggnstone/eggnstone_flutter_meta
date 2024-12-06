@@ -4,7 +4,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'src/Meta.dart';
+import 'Meta.dart';
 
 class MetaSwitch extends StatelessWidget
 {

@@ -1,4 +1,4 @@
-import 'package:eggnstone_flutter_meta/MetaThemeData.dart';
+import 'package:eggnstone_flutter_meta/src/MetaThemeData.dart';
 import 'package:flutter/material.dart';
 
 class TestTools

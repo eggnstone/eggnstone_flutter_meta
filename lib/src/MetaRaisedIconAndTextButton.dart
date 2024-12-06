@@ -4,7 +4,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'src/Meta.dart';
+import 'Meta.dart';
 import 'MetaStringTools.dart';
 
 class MetaRaisedIconAndTextButton extends StatelessWidget
@@ -54,7 +54,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
             );
         }
 
-        final ThemeData materialTheme = Theme.of(context);
+        // TODO: fix or not? final ThemeData materialTheme = Theme.of(context);
         // TODO: fix or not? final Color? actualColor = color ?? materialTheme.buttonColor;
         // TODO: fix or not? final Color actualContentColor = textColor ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
         final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size,

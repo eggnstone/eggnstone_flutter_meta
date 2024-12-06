@@ -3,9 +3,9 @@
 
 import 'package:flutter/cupertino.dart';
 
-import 'src/Meta.dart';
-import 'src/Widgets/Cupertino/CupertinoSwitchListTile.dart';
-import 'src/Widgets/Material/MaterialSwitchListTile.dart';
+import 'Meta.dart';
+import 'Widgets/Cupertino/CupertinoSwitchListTile.dart';
+import 'Widgets/Material/MaterialSwitchListTile.dart';
 
 class MetaSwitchListTile extends StatelessWidget
 {

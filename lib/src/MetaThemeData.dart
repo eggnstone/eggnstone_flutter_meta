@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'ColorTools.dart';
-import 'src/Meta.dart';
+import 'Meta.dart';
 
 class MetaThemeData
 {
