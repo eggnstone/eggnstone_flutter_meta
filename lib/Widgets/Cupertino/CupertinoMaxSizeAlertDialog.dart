@@ -46,7 +46,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
     //static const double _kMinButtonHeight = 45.0;
 
     //static const Color _kDialogPressedColor = Color(0x90FFFFFF);
-    static const Color DIALOG_PRESS_COLOR__LIGHT_THEME  = Color(0xFFF5F5F5);
+    static const Color DIALOG_PRESS_COLOR__LIGHT_THEME = Color(0xFFF5F5F5);
     static const Color DIALOG_PRESS_COLOR__DARK_THEME = Color(0xFFACACAC);
 
     final Widget? title;

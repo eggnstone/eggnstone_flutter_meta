@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'Meta.dart';
 
-
 class MetaRaisedWidgetButton extends StatelessWidget
 {
     final Widget? child;
@@ -34,7 +33,7 @@ class MetaRaisedWidgetButton extends StatelessWidget
                 color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
             );
         }
 

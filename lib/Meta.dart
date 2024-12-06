@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:eggnstone_dart/eggnstone_dart.dart';
 import 'package:flutter/material.dart';
 
-
 import 'MetaDesign.dart';
 
 class Meta

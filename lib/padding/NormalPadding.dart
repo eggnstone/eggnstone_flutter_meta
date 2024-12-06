@@ -9,7 +9,7 @@ class NormalPadding extends StatelessWidget
 
     const NormalPadding({
         this.child,
-        super.key,
+        super.key
     });
 
     @override

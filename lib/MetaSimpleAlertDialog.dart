@@ -32,10 +32,10 @@ class MetaSimpleAlertDialog
             context: context,
             builder: (BuildContext context)
             =>
-                MetaAlertDialog(
-                    title: title == null ? null : Text(title),
-                    content: content == null ? null : Text(content), actions: actions
-                )
+            MetaAlertDialog(
+                title: title == null ? null : Text(title),
+                content: content == null ? null : Text(content), actions: actions
+            )
         );
     }
 
@@ -61,6 +61,6 @@ class MetaSimpleAlertDialog
             actions.add(MetaAlertDialogButton(text: confirmText, isDestructiveAction: isDestructiveAction, onPressed: confirmAction as void Function()?));
 
         return showDialog(context: context, builder: (BuildContext context)
-        => MetaAlertDialog(title: title, content: content, actions: actions));
+            => MetaAlertDialog(title: title, content: content, actions: actions));
     }
 }

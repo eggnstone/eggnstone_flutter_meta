@@ -9,7 +9,7 @@ class MetaRaisedButtonPadding extends StatelessWidget
 
     const MetaRaisedButtonPadding({
         this.child,
-        super.key,
+        super.key
     });
 
     @override

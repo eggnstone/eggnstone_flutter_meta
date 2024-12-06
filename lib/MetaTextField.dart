@@ -5,7 +5,6 @@ import 'package:eggnstone_dart/eggnstone_dart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 import 'Meta.dart';
 
 class MetaTextField extends StatelessWidget
@@ -60,16 +59,16 @@ class MetaTextField extends StatelessWidget
             const BorderSide kDefaultRoundedBorderSide = BorderSide(
                 color: CupertinoDynamicColor.withBrightness(
                     color: Color(0x33000000),
-                    darkColor: Color(0x33FFFFFF),
+                    darkColor: Color(0x33FFFFFF)
                 ),
-                width: 0,
+                width: 0
             );
 
             const Border kDefaultRoundedBorder = Border(
                 top: kDefaultRoundedBorderSide,
                 bottom: kDefaultRoundedBorderSide,
                 left: kDefaultRoundedBorderSide,
-                right: kDefaultRoundedBorderSide,
+                right: kDefaultRoundedBorderSide
             );
 
             final BoxDecoration defaultRoundedBorderDecoration = BoxDecoration(
@@ -79,7 +78,7 @@ class MetaTextField extends StatelessWidget
                 ),*/
                 color: boxDecorationColor,
                 border: kDefaultRoundedBorder,
-                borderRadius: const BorderRadius.all(Radius.circular(5)),
+                borderRadius: const BorderRadius.all(Radius.circular(5))
             );
 
             return CupertinoTextField(autofocus: autofocus,

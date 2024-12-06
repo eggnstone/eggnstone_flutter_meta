@@ -19,7 +19,8 @@ class ColorTools
 
         return MaterialColor(
             color.value,
-            <int, Color>{
+            <int, Color>
+            {
                 50: changeLuminance(color, 1.74),
                 100: changeLuminance(color, 1.59),
                 200: changeLuminance(color, 1.425),
@@ -29,7 +30,7 @@ class ColorTools
                 600: changeLuminance(color, 0.94),
                 700: changeLuminance(color, 0.85),
                 800: changeLuminance(color, 0.77),
-                900: changeLuminance(color, 0.63),
+                900: changeLuminance(color, 0.63)
             }
         );
 

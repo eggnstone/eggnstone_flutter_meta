@@ -32,15 +32,15 @@ class MetaFlatWidgetButton extends StatelessWidget
                 minSize: 1,
                 child: child!,
                 //color: color,
-                onPressed: onPressed,
-                //textColor: textColor
+                onPressed: onPressed
+            //textColor: textColor
             );
 
         return TextButton(
             child: child!,
             //color: color,
-            onPressed: onPressed,
-            //textColor: textColor
+            onPressed: onPressed
+        //textColor: textColor
         );
     }
 }

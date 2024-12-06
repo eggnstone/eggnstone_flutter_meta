@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/material.dart';
 
 class SimpleListTile extends StatelessWidget

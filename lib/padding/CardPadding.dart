@@ -9,7 +9,7 @@ class CardPadding extends StatelessWidget
 
     const CardPadding({
         this.child,
-        super.key,
+        super.key
     });
 
     @override
