@@ -11,11 +11,11 @@ class MetaAlertDialogButton extends StatelessWidget
 {
     final bool isDestructiveAction;
     final String text;
-    final VoidCallback onPressed;
+    final VoidCallback? onPressed;
 
     const MetaAlertDialogButton({
         required this.text,
-        required this.onPressed,
+        this.onPressed,
         this.isDestructiveAction = false,
         super.key
     });

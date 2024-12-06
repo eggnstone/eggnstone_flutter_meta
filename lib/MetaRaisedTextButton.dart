@@ -9,13 +9,13 @@ import 'MetaStringTools.dart';
 
 class MetaRaisedTextButton extends StatelessWidget
 {
-    final Color? color;
+    // TODO: fix or not? final Color? color;
     final String? text;
     final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaRaisedTextButton({
-        this.color,
+        // TODO: fix or not? this.color,
         this.text,
         this.textColor,
         this.onPressed,
@@ -28,28 +28,33 @@ class MetaRaisedTextButton extends StatelessWidget
         if (Meta.isDesignCupertino)
         {
             final CupertinoThemeData theme = CupertinoTheme.of(context);
-            final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
-            final Color actualContentColor = textColor ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
+            // TODO: fix or not? final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
+            //final Color actualContentColor = textColor; // TODO: fix or not? ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
+            final Color? actualContentColor = textColor; // TODO: fix or not? ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
             final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
 
             return CupertinoButton(
                 child: Text(text!, style: actualTextStyle),
-                color: actualColor,
+                // TODO: fix or not? color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
             );
         }
 
-        final ThemeData materialTheme = Theme.of(context);
-        final Color? actualColor = color ?? materialTheme.buttonColor;
-        final Color actualContentColor = textColor ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
+        // TODO: fix or not? final ThemeData materialTheme = Theme.of(context);
+        // TODO: fix or not? final Color? actualColor = color ?? materialTheme.buttonColor;
+        //final Color actualContentColor = textColor; // TODO: fix or not? ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
+        final Color? actualContentColor = textColor; // TODO: fix or not? ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
+
+        /*final ThemeData theme = Theme.of(context);
+        final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);*/
 
         return ElevatedButton(
             child: Text(MetaStringTools.toUpperCase(text)!),
-            color: actualColor,
+            // TODO: fix or not? color: actualColor,
             onPressed: onPressed,
-            textColor: actualContentColor
+            // TODO: FIX !!!!!!!!!! textColor: actualContentColor
         );
     }
 }

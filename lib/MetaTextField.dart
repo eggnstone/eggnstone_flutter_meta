@@ -14,7 +14,7 @@ class MetaTextField extends StatelessWidget
     final bool autofocus;
     final TextEditingController? controller;
     final InputDecoration? decorationMaterial;
-    final bool? enabled;
+    final bool enabled;
     final bool expands;
     final FocusNode? focusNode;
     final TextInputType? keyboardType;
@@ -30,7 +30,7 @@ class MetaTextField extends StatelessWidget
         this.autofocus = false,
         this.controller,
         this.decorationMaterial,
-        this.enabled,
+        this.enabled = true,
         this.expands = false,
         this.focusNode,
         this.keyboardType,
