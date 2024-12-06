@@ -1,5 +1,5 @@
 
-
+// ignore_for_file: diagnostic_describe_all_properties
 
 import 'package:flutter/cupertino.dart';
 
@@ -13,25 +13,24 @@ class CupertinoSwitchListTile extends StatelessWidget
     final ValueChanged<bool>? onChanged;
     final Color? activeColor;
 
-    CupertinoSwitchListTile({
+    const CupertinoSwitchListTile({
         this.title,
         this.subtitle,
         this.value,
         this.activeColor,
-        this.onChanged
+        this.onChanged,
+        super.key
     });
 
     @override
     Widget build(BuildContext context)
-    {
-        return SimpleListTile(
-            title: title,
-            subtitle: subtitle,
-            trailing: CupertinoSwitch(
-                value: value!,
-                onChanged: onChanged,
-                activeColor: activeColor
-            )
-        );
-    }
+    => SimpleListTile(
+        title: title,
+        subtitle: subtitle,
+        trailing: CupertinoSwitch(
+            value: value!,
+            onChanged: onChanged,
+            activeColor: activeColor
+        )
+    );
 }

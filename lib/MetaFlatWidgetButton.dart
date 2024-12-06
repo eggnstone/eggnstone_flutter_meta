@@ -1,4 +1,6 @@
 
+// ignore_for_file: diagnostic_describe_all_properties
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,11 +15,12 @@ class MetaFlatWidgetButton extends StatelessWidget
 
     //final Color textColor;
 
-    MetaFlatWidgetButton({
+    const MetaFlatWidgetButton({
         this.child,
         //this.color,
         this.onPressed,
-        //this.textColor
+        //this.textColor,
+        super.key
     });
 
     @override
@@ -26,7 +29,7 @@ class MetaFlatWidgetButton extends StatelessWidget
         if (Meta.isDesignCupertino)
             return CupertinoButton(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                minSize: 1.0,
+                minSize: 1,
                 child: child!,
                 //color: color,
                 onPressed: onPressed,

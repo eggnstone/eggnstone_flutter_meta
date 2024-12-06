@@ -18,7 +18,7 @@ class MetaSimpleAlertDialog
         bool isDestructiveAction = false
     })
     {
-        List<Widget> actions = [];
+        final List<Widget> actions = <Widget>[];
 
         // TODO: upper case?
 
@@ -50,7 +50,7 @@ class MetaSimpleAlertDialog
         bool isDestructiveAction = false
     })
     {
-        List<Widget> actions = [];
+        final List<Widget> actions = <Widget>[];
 
         // TODO: upper case?
 

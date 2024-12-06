@@ -8,9 +8,9 @@ class MetaRaisedButtonPadding extends StatelessWidget
     final Widget? child;
 
     const MetaRaisedButtonPadding({
-        Key? key,
-        this.child
-    }) : super(key: key);
+        this.child,
+        super.key,
+    });
 
     @override
     Widget build(BuildContext context)

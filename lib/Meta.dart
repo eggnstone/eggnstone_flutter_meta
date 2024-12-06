@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:eggnstone_dart/eggnstone_dart.dart';
 import 'package:flutter/material.dart';
 
 
@@ -26,7 +27,7 @@ class Meta
 
         try
         {
-            Brightness platformBrightness = MediaQuery
+            final Brightness platformBrightness = MediaQuery
                 .of(context)
                 .platformBrightness;
 
@@ -34,9 +35,9 @@ class Meta
         }
         catch (exception)
         {
-            print('################################################################################');
-            print('# Meta.isDark: $exception');
-            print('################################################################################');
+            logDebug('################################################################################');
+            logDebug('# Meta.isDark: $exception');
+            logDebug('################################################################################');
             return false;
         }
     }

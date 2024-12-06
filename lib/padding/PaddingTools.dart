@@ -1,4 +1,5 @@
 
+import 'package:eggnstone_dart/eggnstone_dart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,11 +16,11 @@ class PaddingTools
 {
     static List<Widget> pad(List<Widget> columnChildren, double basePadding)
     {
-        List<Widget> newChildren = [];
+        final List<Widget> newChildren = <Widget>[];
 
         for (Widget widget in columnChildren)
         {
-            bool wasExpanded = widget is Expanded;
+            final bool wasExpanded = widget is Expanded;
             if (wasExpanded)
                 widget = widget.child;
 
@@ -31,36 +32,36 @@ class PaddingTools
 
     static void _addChildToColumnChildren(List<Widget> columnChildren, Widget child, {bool makeChildExpanded = false})
     {
-        double previousWidgetPadding = 0.0;
-        if (columnChildren.length == 0)
+        double previousWidgetPadding = 0;
+        if (columnChildren.isEmpty)
         {
-            //print('First element');
+            //logDebug('First element');
         }
         else
         {
             if (columnChildren.last is SizedBox)
             {
-                //print('Removing 2x-Previous element: ' + columnChildren.last.runtimeType.toString());
+                //logDebug('Removing 2x-Previous element: ' + columnChildren.last.runtimeType.toString());
                 columnChildren.removeLast();
             }
             else
             {
-                print('Removing 2x-Previous element: ' + columnChildren.last.runtimeType.toString());
-                print('##################################################');
-                print('Padding-Error');
-                print('##################################################');
+                logDebug('Removing 2x-Previous element: ${columnChildren.last.runtimeType}');
+                logDebug('##################################################');
+                logDebug('Padding-Error');
+                logDebug('##################################################');
             }
 
-            if (columnChildren.length == 0)
+            if (columnChildren.isEmpty)
             {
-                print('Previous element: ' + columnChildren.last.runtimeType.toString());
-                print('##################################################');
-                print('Padding-Error');
-                print('##################################################');
+                logDebug('Previous element: ${columnChildren.last.runtimeType}');
+                logDebug('##################################################');
+                logDebug('Padding-Error');
+                logDebug('##################################################');
             }
             else
             {
-                //print('Previous element: ' + columnChildren.last.runtimeType.toString());
+                //logDebug('Previous element: ' + columnChildren.last.runtimeType.toString());
                 if (columnChildren.last is CardPadding)
                 {
                     previousWidgetPadding = PaddingConsts.INHERENT_CARD_PADDING_VERTICAL;
@@ -77,7 +78,7 @@ class PaddingTools
             }
         }
 
-        double currentWidgetPadding = 0.0;
+        double currentWidgetPadding = 0;
         if (child is Card)
         {
             currentWidgetPadding = PaddingConsts.INHERENT_CARD_PADDING_VERTICAL;
@@ -97,40 +98,41 @@ class PaddingTools
 
         if (resultingPreviousPadding < 0.0)
         {
-            print('previousWidgetPadding: $previousWidgetPadding');
-            print('currentWidgetPadding: $currentWidgetPadding');
-            print('resultingPreviousPadding: $resultingPreviousPadding');
-            print('resultingNextPadding: $resultingNextPadding');
-            print('##################################################');
-            print('Padding-Error');
-            print('##################################################');
+            logDebug('previousWidgetPadding: $previousWidgetPadding');
+            logDebug('currentWidgetPadding: $currentWidgetPadding');
+            logDebug('resultingPreviousPadding: $resultingPreviousPadding');
+            logDebug('resultingNextPadding: $resultingNextPadding');
+            logDebug('##################################################');
+            logDebug('Padding-Error');
+            logDebug('##################################################');
             resultingPreviousPadding = 0.0;
         }
 
         if (resultingNextPadding < 0.0)
         {
-            print('previousWidgetPadding: $previousWidgetPadding');
-            print('currentWidgetPadding: $currentWidgetPadding');
-            print('resultingPreviousPadding: $resultingPreviousPadding');
-            print('resultingNextPadding: $resultingNextPadding');
-            print('##################################################');
-            print('Padding-Error');
-            print('##################################################');
+            logDebug('previousWidgetPadding: $previousWidgetPadding');
+            logDebug('currentWidgetPadding: $currentWidgetPadding');
+            logDebug('resultingPreviousPadding: $resultingPreviousPadding');
+            logDebug('resultingNextPadding: $resultingNextPadding');
+            logDebug('##################################################');
+            logDebug('Padding-Error');
+            logDebug('##################################################');
             resultingNextPadding = 0.0;
         }
 
+        Widget paddedChild;
         if (child is Card)
-            child = CardPadding(child: child);
+            paddedChild = CardPadding(child: child);
         else if (child is MetaRaisedIconAndTextButton || child is MetaRaisedTextButton || child is MetaRaisedWidgetButton)
-            child = MetaRaisedButtonPadding(child: child);
+            paddedChild = MetaRaisedButtonPadding(child: child);
         else
-            child = NormalPadding(child: child);
+            paddedChild = NormalPadding(child: child);
 
         if (makeChildExpanded)
-            child = Expanded(child: child);
+            paddedChild = Expanded(child: paddedChild);
 
         columnChildren.add(SizedBox(height: resultingPreviousPadding));
-        columnChildren.add(child);
+        columnChildren.add(paddedChild);
         columnChildren.add(SizedBox(height: resultingNextPadding));
     }
 }

@@ -1,4 +1,6 @@
 
+// ignore_for_file: diagnostic_describe_all_properties
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,31 +14,29 @@ import 'Meta.dart';
 /// to separate the content from the other edges of the dialog.
 class MetaAlertDialog extends StatelessWidget
 {
-    final Widget? title;
-    final EdgeInsetsGeometry? overrideMaterialDefaultTitlePadding;
+    final List<Widget>? actions;
     final Widget? content;
     final EdgeInsetsGeometry? overrideMaterialDefaultContentPadding;
-    final List<Widget>? actions;
+    final EdgeInsetsGeometry? overrideMaterialDefaultTitlePadding;
+    final Widget? title;
 
-    MetaAlertDialog({
-        this.title,
-        this.overrideMaterialDefaultTitlePadding,
+    const MetaAlertDialog({
+        this.actions,
         this.content,
         this.overrideMaterialDefaultContentPadding,
-        this.actions
-    })
-    {
-        assert(title != null || content != null);
-    }
+        this.overrideMaterialDefaultTitlePadding,
+        this.title,
+        super.key
+    }) : assert(title != null || content != null, 'Either title or content must be provided');
 
     @override
     Widget build(BuildContext context)
     {
-        Widget? actualTitle = title;
+        final Widget? actualTitle = title;
         //actualTitle = actualTitle == null ? null : BorderedContainer(child: actualTitle);
         //actualTitle = actualTitle == null ? null : Container(child: actualTitle, foregroundDecoration: BoxDecoration(color: Color.fromARGB(50, 255, 0, 0)));
 
-        Widget? actualContent = content;
+        final Widget? actualContent = content;
         //actualContent = actualContent == null ? null : BorderedContainer(child: actualContent);
         //actualContent = actualContent == null ? null : Container(child: actualContent, foregroundDecoration: BoxDecoration(color: Color.fromARGB(50, 255, 0, 0)));
 
@@ -51,7 +51,7 @@ class MetaAlertDialog extends StatelessWidget
             );
 
         // contentPadding must not be null hence putting in the default here
-        EdgeInsetsGeometry actualMaterialContentPadding = overrideMaterialDefaultContentPadding == null ? const EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0) : overrideMaterialDefaultContentPadding!;
+        final EdgeInsetsGeometry actualMaterialContentPadding = overrideMaterialDefaultContentPadding == null ? const EdgeInsets.fromLTRB(24, 20, 24, 24) : overrideMaterialDefaultContentPadding!;
 
         return AlertDialog(
             title: actualTitle,

@@ -2,12 +2,14 @@ class MetaStringTools
 {
     static String? toUpperCase(String? s)
     {
-        if (s == null)
+        String? result = s;
+
+        if (result == null)
             return null;
 
-        s = s.toUpperCase();
-        s = s.replaceAll('ß', 'ẞ');
+        result = result.toUpperCase();
+        result = result.replaceAll('ß', 'ẞ');
 
-        return s;
+        return result;
     }
 }

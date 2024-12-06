@@ -20,7 +20,7 @@ void main()
         Meta.forceDesign = MetaDesign.Material;
         Meta.brightness = Brightness.light;
 
-        Widget testWidget = TestTools.createMetaApp(
+        final Widget testWidget = TestTools.createMetaApp(
             context: null,
             primaryColor: null,
             child: MetaRaisedIconAndTextButton(
@@ -42,7 +42,7 @@ void main()
         Meta.forceDesign = MetaDesign.Material;
         Meta.brightness = Brightness.light;
 
-        Widget testWidget = TestTools.createMetaApp(
+        final Widget testWidget = TestTools.createMetaApp(
             context: null,
             primaryColor: null,
             child: MetaRaisedIconAndTextButton(
@@ -55,7 +55,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(ElevatedButton);
+        final Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/DefaultColor_LightTheme.png'));
     });
 
@@ -65,7 +65,7 @@ void main()
         Meta.forceDesign = MetaDesign.Material;
         Meta.brightness = Brightness.dark;
 
-        Widget testWidget = TestTools.createMetaApp(
+        final Widget testWidget = TestTools.createMetaApp(
             context: null,
             primaryColor: null,
             child: MetaRaisedIconAndTextButton(
@@ -78,7 +78,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(ElevatedButton);
+        final Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/DefaultColor_DarkTheme.png'));
     });
 
@@ -88,7 +88,7 @@ void main()
         Meta.forceDesign = MetaDesign.Material;
         Meta.brightness = Brightness.light;
 
-        Widget testWidget = TestTools.createMetaApp(
+        final Widget testWidget = TestTools.createMetaApp(
             context: null,
             primaryColor: TEST_COLOR_LIGHT,
             child: MetaRaisedIconAndTextButton(
@@ -101,7 +101,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(ElevatedButton);
+        final Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/LightColor_LightTheme.png'));
     });
 
@@ -111,7 +111,7 @@ void main()
         Meta.forceDesign = MetaDesign.Material;
         Meta.brightness = Brightness.dark;
 
-        Widget testWidget = TestTools.createMetaApp(
+        final Widget testWidget = TestTools.createMetaApp(
             context: null,
             primaryColor: TEST_COLOR_LIGHT,
             child: MetaRaisedIconAndTextButton(
@@ -124,7 +124,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(ElevatedButton);
+        final Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/LightColor_DarkTheme.png'));
     });
 
@@ -134,7 +134,7 @@ void main()
         Meta.forceDesign = MetaDesign.Material;
         Meta.brightness = Brightness.light;
 
-        Widget testWidget = TestTools.createMetaApp(
+        final Widget testWidget = TestTools.createMetaApp(
             context: null,
             primaryColor: TEST_COLOR_DARK,
             child: MetaRaisedIconAndTextButton(
@@ -147,7 +147,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(ElevatedButton);
+        final Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/DarkColor_LightTheme.png'));
     });
 
@@ -157,7 +157,7 @@ void main()
         Meta.forceDesign = MetaDesign.Material;
         Meta.brightness = Brightness.dark;
 
-        Widget testWidget = TestTools.createMetaApp(
+        final Widget testWidget = TestTools.createMetaApp(
             context: null,
             primaryColor: TEST_COLOR_DARK,
             child: MetaRaisedIconAndTextButton(
@@ -170,7 +170,7 @@ void main()
 
         await tester.pumpWidget(testWidget);
 
-        Finder finder = find.byType(ElevatedButton);
+        final Finder finder = find.byType(ElevatedButton);
         await expectLater(finder, matchesGoldenFile('golden/MetaRaisedIconAndTextButton/Material/DarkColor_DarkTheme.png'));
     });
 }

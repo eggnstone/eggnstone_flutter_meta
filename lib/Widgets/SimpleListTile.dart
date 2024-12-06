@@ -8,17 +8,18 @@ class SimpleListTile extends StatelessWidget
     final Widget? subtitle;
     final Widget? trailing;
 
-    SimpleListTile({
+    const SimpleListTile({
         this.title,
         this.subtitle,
-        this.trailing
+        this.trailing,
+        super.key
     });
 
     @override
     Widget build(BuildContext context)
     {
-        List<Widget?> rowChildren = [];
-        List<Widget?> columnChildren = [];
+        final List<Widget?> rowChildren = <Widget?>[];
+        final List<Widget?> columnChildren = <Widget?>[];
 
         if (title != null)
             columnChildren.add(title);
@@ -26,7 +27,7 @@ class SimpleListTile extends StatelessWidget
         if (subtitle != null)
             columnChildren.add(subtitle);
 
-        if (columnChildren.length == 0)
+        if (columnChildren.isEmpty)
             rowChildren.add(Expanded(child: Container()));
         else
             rowChildren.add(Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: columnChildren as List<Widget>)));
@@ -34,7 +35,7 @@ class SimpleListTile extends StatelessWidget
         if (trailing != null)
             rowChildren.add(trailing);
 
-        if (columnChildren.length == 0)
+        if (columnChildren.isEmpty)
             return Container();
 
         return Row(children: rowChildren as List<Widget>);

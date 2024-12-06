@@ -1,4 +1,6 @@
 
+// ignore_for_file: diagnostic_describe_all_properties
+
 import 'package:flutter/cupertino.dart';
 
 import 'Meta.dart';
@@ -12,11 +14,12 @@ class MetaSwitchListTile extends StatelessWidget
     final Widget? title;
     final bool? value;
 
-    MetaSwitchListTile({
+    const MetaSwitchListTile({
         this.onChanged,
         this.subtitle,
         this.title,
-        this.value
+        this.value,
+        super.key
     });
 
     @override
@@ -24,7 +27,7 @@ class MetaSwitchListTile extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            Color activeColor = CupertinoTheme
+            final Color activeColor = CupertinoTheme
                 .of(context)
                 .primaryColor;
 

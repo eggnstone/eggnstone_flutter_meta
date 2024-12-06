@@ -1,4 +1,6 @@
 
+// ignore_for_file: diagnostic_describe_all_properties
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,11 +14,12 @@ class MetaRaisedTextButton extends StatelessWidget
     final Color? textColor;
     final VoidCallback? onPressed;
 
-    MetaRaisedTextButton({
+    const MetaRaisedTextButton({
         this.color,
         this.text,
         this.textColor,
-        this.onPressed
+        this.onPressed,
+        super.key 
     });
 
     @override
@@ -24,23 +27,23 @@ class MetaRaisedTextButton extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            CupertinoThemeData theme = CupertinoTheme.of(context);
-            Color? actualColor = color == null ? theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300] : color;
-            Color? actualContentColor = textColor == null ? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
-            TextStyle? actualTextStyle = actualContentColor == null ? null : theme.textTheme.textStyle.copyWith(color: actualContentColor);
+            final CupertinoThemeData theme = CupertinoTheme.of(context);
+            final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
+            final Color actualContentColor = textColor ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
+            final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
 
             return CupertinoButton(
                 child: Text(text!, style: actualTextStyle),
                 color: actualColor,
-                minSize: 1.0,
+                minSize: 1,
                 onPressed: onPressed,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
             );
         }
 
-        ThemeData materialTheme = Theme.of(context);
-        Color? actualColor = color == null ? materialTheme.buttonColor : color;
-        Color? actualContentColor = textColor == null ? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black) : textColor;
+        final ThemeData materialTheme = Theme.of(context);
+        final Color? actualColor = color ?? materialTheme.buttonColor;
+        final Color actualContentColor = textColor ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
 
         return ElevatedButton(
             child: Text(MetaStringTools.toUpperCase(text)!),

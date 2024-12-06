@@ -1,4 +1,7 @@
 
+// ignore_for_file: diagnostic_describe_all_properties
+
+import 'package:eggnstone_dart/eggnstone_dart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +27,7 @@ class MetaTextField extends StatelessWidget
     final TextStyle? style;
     final TextCapitalization textCapitalization;
 
-    MetaTextField({
+    const MetaTextField({
         this.autofocus = false,
         this.controller,
         this.decorationMaterial,
@@ -38,7 +41,8 @@ class MetaTextField extends StatelessWidget
         this.onSubmitted,
         this.placeholderCupertino,
         this.style,
-        this.textCapitalization = TextCapitalization.none
+        this.textCapitalization = TextCapitalization.none,
+        super.key
     });
 
     @override
@@ -46,37 +50,36 @@ class MetaTextField extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            ThemeData theme = Theme.of(context);
-            CupertinoThemeData cupertinoTheme = CupertinoTheme.of(context);
+            final ThemeData theme = Theme.of(context);
+            final CupertinoThemeData cupertinoTheme = CupertinoTheme.of(context);
 
-            print('Theme: ${theme.brightness}');
-            print('CupertinoTheme: ${cupertinoTheme.brightness}');
-            Color boxDecorationColor = cupertinoTheme.brightness == Brightness.light ? Color(0x33FFFFFF) : Color(0x33000000);
+            logDebug('Theme: ${theme.brightness}');
+            logDebug('CupertinoTheme: ${cupertinoTheme.brightness}');
+            final Color boxDecorationColor = cupertinoTheme.brightness == Brightness.light ? const Color(0x33FFFFFF) : const Color(0x33000000);
 
-            const BorderSide _kDefaultRoundedBorderSide = BorderSide(
+            const BorderSide kDefaultRoundedBorderSide = BorderSide(
                 color: CupertinoDynamicColor.withBrightness(
                     color: Color(0x33000000),
                     darkColor: Color(0x33FFFFFF),
                 ),
-                style: BorderStyle.solid,
-                width: 0.0,
+                width: 0,
             );
 
-            const Border _kDefaultRoundedBorder = Border(
-                top: _kDefaultRoundedBorderSide,
-                bottom: _kDefaultRoundedBorderSide,
-                left: _kDefaultRoundedBorderSide,
-                right: _kDefaultRoundedBorderSide,
+            const Border kDefaultRoundedBorder = Border(
+                top: kDefaultRoundedBorderSide,
+                bottom: kDefaultRoundedBorderSide,
+                left: kDefaultRoundedBorderSide,
+                right: kDefaultRoundedBorderSide,
             );
 
-            BoxDecoration defaultRoundedBorderDecoration = BoxDecoration(
+            final BoxDecoration defaultRoundedBorderDecoration = BoxDecoration(
                 /*color: CupertinoDynamicColor.withBrightness(
                     color: CupertinoColors.white,
                     darkColor: CupertinoColors.black,
                 ),*/
                 color: boxDecorationColor,
-                border: _kDefaultRoundedBorder,
-                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                border: kDefaultRoundedBorder,
+                borderRadius: const BorderRadius.all(Radius.circular(5)),
             );
 
             return CupertinoTextField(autofocus: autofocus,

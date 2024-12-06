@@ -1,3 +1,5 @@
+// ignore_for_file: diagnostic_describe_all_properties
+
 import 'package:flutter/material.dart';
 
 import '../SimpleListTile.dart';
@@ -10,26 +12,25 @@ class MaterialSwitchListTile extends StatelessWidget
     final ValueChanged<bool>? onChanged;
     final Color? activeColor;
 
-    MaterialSwitchListTile({
+    const MaterialSwitchListTile({
         this.title,
         this.subtitle,
         this.value,
         this.activeColor,
-        this.onChanged
+        this.onChanged,
+        super.key
     });
 
     @override
     Widget build(BuildContext context)
-    {
-        return SimpleListTile(
-            title: title,
-            subtitle: subtitle,
-            trailing: Switch(
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                value: value!,
-                onChanged: onChanged,
-                activeColor: activeColor
-            )
-        );
-    }
+    => SimpleListTile(
+        title: title,
+        subtitle: subtitle,
+        trailing: Switch(
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            value: value!,
+            onChanged: onChanged,
+            activeColor: activeColor
+        )
+    );
 }

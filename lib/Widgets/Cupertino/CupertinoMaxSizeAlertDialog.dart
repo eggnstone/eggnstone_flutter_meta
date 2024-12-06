@@ -16,11 +16,11 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
     static const TextStyle _kCupertinoDialogTitleStyle = TextStyle(
         fontFamily: '.SF UI Display',
         inherit: false,
-        fontSize: 18.0,
+        fontSize: 18,
         fontWeight: FontWeight.w600,
         color: CupertinoColors.black,
         letterSpacing: 0.48,
-        textBaseline: TextBaseline.alphabetic,
+        textBaseline: TextBaseline.alphabetic
     );
 
     static const TextStyle _kCupertinoDialogContentStyle = TextStyle(
@@ -31,7 +31,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
         color: CupertinoColors.black,
         height: 1.036,
         letterSpacing: -0.25,
-        textBaseline: TextBaseline.alphabetic,
+        textBaseline: TextBaseline.alphabetic
     );
 
     static const TextStyle _kCupertinoDialogActionStyle = TextStyle(
@@ -40,40 +40,41 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
         fontSize: 16.8,
         fontWeight: FontWeight.w400,
         color: CupertinoColors.activeBlue,
-        textBaseline: TextBaseline.alphabetic,
+        textBaseline: TextBaseline.alphabetic
     );
 
     //static const double _kMinButtonHeight = 45.0;
 
     //static const Color _kDialogPressedColor = Color(0x90FFFFFF);
-    static const Color _kDialogPressedColor_LightTheme = Color(0xFFF5F5F5);
-    static const Color _kDialogPressedColor_DarkTheme = Color(0xFFACACAC);
+    static const Color DIALOG_PRESS_COLOR__LIGHT_THEME  = Color(0xFFF5F5F5);
+    static const Color DIALOG_PRESS_COLOR__DARK_THEME = Color(0xFFACACAC);
 
     final Widget? title;
     final Widget? content;
     final List<Widget>? actions;
 
-    CupertinoMaxSizeAlertDialog({
+    const CupertinoMaxSizeAlertDialog({
         this.title,
         this.content,
         this.actions,
-    }) : assert(actions != null && actions.length == 2);
+        super.key
+    }) : assert(actions != null && actions.length == 2, 'Exactly two actions must be provided');
 
     @override
     Widget build(BuildContext context)
     {
-        ThemeData theme = Theme.of(context);
-        Color pressedBackgroundColor = theme.brightness == Brightness.light ? _kDialogPressedColor_LightTheme : _kDialogPressedColor_DarkTheme;
+        final ThemeData theme = Theme.of(context);
+        final Color pressedBackgroundColor = theme.brightness == Brightness.light ? DIALOG_PRESS_COLOR__LIGHT_THEME : DIALOG_PRESS_COLOR__DARK_THEME;
 
         return Container(
             // margin instead of padding because margin is not clickable!
-            margin: const EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(20),
             child: CupertinoPopupSurface(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
                         Padding(
-                            padding: const EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0),
+                            padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
                             child: DefaultTextStyle(
                                 style: _kCupertinoDialogTitleStyle,
                                 textAlign: TextAlign.center,
@@ -82,7 +83,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                         ),
                         Expanded(
                             child: Padding(
-                                padding: const EdgeInsets.only(left: 20.0, top: 2.0, right: 20.0),
+                                padding: const EdgeInsets.only(left: 20, top: 2, right: 20),
                                 child: DefaultTextStyle(
                                     style: _kCupertinoDialogContentStyle,
                                     child: content!
@@ -90,13 +91,14 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                             )
                         ),
                         Padding(
-                            padding: const EdgeInsets.only(top: 20.0),
+                            padding: const EdgeInsets.only(top: 20),
                             child: DefaultTextStyle(
                                 style: _kCupertinoDialogActionStyle,
                                 textAlign: TextAlign.center,
                                 child: Column(
                                     children: <Widget>[
-                                        Divider(height: 0.0),
+                                        const Divider(height: 0),
+                                        // ignore: avoid_unnecessary_containers
                                         Container(
                                             // no padding around buttons, they could grow further than they should but otherwise no full area tapping
                                             //padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -109,10 +111,10 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                                                         )
                                                     ),
                                                     Container(
-                                                        // no padding around buttons, they could grow further than they should but otherwise no full area tapping
-                                                        //padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                                                        //child: VerticalDivider(_kMinButtonHeight),
-                                                        //child: VerticalDivider(color:Colors.red)
+                                                    // no padding around buttons, they could grow further than they should but otherwise no full area tapping
+                                                    //padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                                                    //child: VerticalDivider(_kMinButtonHeight),
+                                                    //child: VerticalDivider(color:Colors.red)
                                                     ),
                                                     Expanded(
                                                         child: CupertinoAlertDialogButtonBackground(

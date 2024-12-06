@@ -8,18 +8,16 @@ class CardPadding extends StatelessWidget
     final Widget? child;
 
     const CardPadding({
-        Key? key,
-        this.child
-    }) : super(key: key);
+        this.child,
+        super.key,
+    });
 
     @override
     Widget build(BuildContext context)
-    {
-        return Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: PaddingConsts.GLOBAL_NORMAL_PADDING - PaddingConsts.INHERENT_CARD_PADDING_HORIZONTAL
-            ),
-            child: child
-        );
-    }
+    => Padding(
+        padding: const EdgeInsets.symmetric(
+            horizontal: PaddingConsts.GLOBAL_NORMAL_PADDING - PaddingConsts.INHERENT_CARD_PADDING_HORIZONTAL
+        ),
+        child: child
+    );
 }

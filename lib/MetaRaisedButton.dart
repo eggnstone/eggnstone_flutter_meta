@@ -56,9 +56,9 @@ class MetaRaisedButton extends StatelessWidget
     {
         if (widget is Text)
         {
-            print('################################################################################');
-            print('# MetaRaisedButton: Use NativeButtonText instead of Text');
-            print('################################################################################');
+            logDebug('################################################################################');
+            logDebug('# MetaRaisedButton: Use NativeButtonText instead of Text');
+            logDebug('################################################################################');
             return false;
         }
         else if (widget is NativeButtonText)
@@ -80,9 +80,9 @@ class MetaRaisedButton extends StatelessWidget
         }
         else
         {
-            print('################################################################################');
-            print('# MetaRaisedButton: Unhandled child: ${widget.runtimeType}');
-            print('################################################################################');
+            logDebug('################################################################################');
+            logDebug('# MetaRaisedButton: Unhandled child: ${widget.runtimeType}');
+            logDebug('################################################################################');
             return false;
         }
     }

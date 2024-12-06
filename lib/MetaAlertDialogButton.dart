@@ -1,4 +1,6 @@
 
+// ignore_for_file: diagnostic_describe_all_properties
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,25 +9,22 @@ import 'MetaStringTools.dart';
 
 class MetaAlertDialogButton extends StatelessWidget
 {
-    final String? text;
     final bool isDestructiveAction;
-    final VoidCallback? onPressed;
+    final String text;
+    final VoidCallback onPressed;
 
-    MetaAlertDialogButton({
-        this.text,
+    const MetaAlertDialogButton({
+        required this.text,
+        required this.onPressed,
         this.isDestructiveAction = false,
-        this.onPressed
-    })
-    {
-        assert(text != null);
-        assert(onPressed != null);
-    }
+        super.key
+    });
 
     @override
     Widget build(BuildContext context)
     {
         if (Meta.isDesignCupertino)
-            return CupertinoDialogAction(child: Text(text!), isDestructiveAction: isDestructiveAction, onPressed: onPressed);
+            return CupertinoDialogAction(child: Text(text), isDestructiveAction: isDestructiveAction, onPressed: onPressed);
 
         return TextButton(onPressed: onPressed, child: Text(MetaStringTools.toUpperCase(text)!));
     }
