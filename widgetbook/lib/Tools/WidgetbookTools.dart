@@ -7,13 +7,13 @@ class WidgetbookTools
     {
     }
 
-    static Color? getColor(BuildContext context)
+    static Color? getRedColors(BuildContext context)
     {
         final bool useSpecificColor = context.knobs.boolean(label: 'color=red');
         final bool useSpecificColorLight = context.knobs.boolean(label: 'color=red.shade100');
         return useSpecificColor ? useSpecificColorLight ? Colors.red.shade100 : Colors.red : null;
     }
 
-    static Color? getTextColor(BuildContext context)
+    static Color? getGreenTextColor(BuildContext context)
     => context.knobs.boolean(label: 'textColor=green') ? Colors.green : null;
 }
