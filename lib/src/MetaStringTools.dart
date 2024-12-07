@@ -1,11 +1,8 @@
 class MetaStringTools
 {
-    static String? toUpperCase(String? s)
+    static String toUpperCase(String s)
     {
-        String? result = s;
-
-        if (result == null)
-            return null;
+        String result = s;
 
         result = result.toUpperCase();
         result = result.replaceAll('ß', 'ẞ');

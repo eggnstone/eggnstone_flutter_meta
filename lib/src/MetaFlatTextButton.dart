@@ -8,12 +8,12 @@ import 'MetaStringTools.dart';
 
 class MetaFlatTextButton extends StatelessWidget
 {
-    final String? text;
+    final String text;
     final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaFlatTextButton({
-        this.text,
+        required this.text,
         this.textColor,
         this.onPressed,
         super.key
@@ -26,12 +26,12 @@ class MetaFlatTextButton extends StatelessWidget
             return CupertinoButton(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 minSize: 1,
-                child: Text(text!, style: TextStyle(color: textColor)),
+                child: Text(text, style: TextStyle(color: textColor)),
                 onPressed: onPressed
             );
 
         return TextButton(
-            child: Text(MetaStringTools.toUpperCase(text)!, style: TextStyle(color: textColor)),
+            child: Text(MetaStringTools.toUpperCase(text), style: TextStyle(color: textColor)),
             onPressed: onPressed
         );
     }

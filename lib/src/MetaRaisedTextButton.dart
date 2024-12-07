@@ -4,20 +4,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'ColorConstants.dart';
 import 'Meta.dart';
 import 'MetaStringTools.dart';
 
 class MetaRaisedTextButton extends StatelessWidget
 {
+    final String text;
     final Color? color;
-    final String? text;
     final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaRaisedTextButton({
+        required this.text,
         this.color,
-        this.text,
         this.textColor,
         this.onPressed,
         super.key 
@@ -35,7 +34,7 @@ class MetaRaisedTextButton extends StatelessWidget
             final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
 
             return CupertinoButton(
-                child: Text(text!, style: actualTextStyle),
+                child: Text(text, style: actualTextStyle),
                 color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
@@ -52,7 +51,7 @@ class MetaRaisedTextButton extends StatelessWidget
         final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);*/
 
         return ElevatedButton(
-            child: Text(MetaStringTools.toUpperCase(text)!),
+            child: Text(MetaStringTools.toUpperCase(text)),
             // TODO: fix or not? color: actualColor,
             onPressed: onPressed,
             // TODO: FIX !!!!!!!!!! textColor: actualContentColor

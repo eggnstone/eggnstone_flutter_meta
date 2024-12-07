@@ -13,7 +13,7 @@ Known issues:
 */
 class CupertinoMaxSizeAlertDialog extends StatelessWidget
 {
-    static const TextStyle _kCupertinoDialogTitleStyle = TextStyle(
+    static const TextStyle CUPERTINO_DIALOG_TITLE_STYLE = TextStyle(
         fontFamily: '.SF UI Display',
         inherit: false,
         fontSize: 18,
@@ -23,7 +23,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
         textBaseline: TextBaseline.alphabetic
     );
 
-    static const TextStyle _kCupertinoDialogContentStyle = TextStyle(
+    static const TextStyle CUPERTINO_DIALOG_CONTENT_STYLE = TextStyle(
         fontFamily: '.SF UI Text',
         inherit: false,
         fontSize: 13.4,
@@ -34,7 +34,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
         textBaseline: TextBaseline.alphabetic
     );
 
-    static const TextStyle _kCupertinoDialogActionStyle = TextStyle(
+    static const TextStyle CUPERTINO_DIALOG_ACTION_STYLE = TextStyle(
         fontFamily: '.SF UI Text',
         inherit: false,
         fontSize: 16.8,
@@ -76,7 +76,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                         Padding(
                             padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
                             child: DefaultTextStyle(
-                                style: _kCupertinoDialogTitleStyle,
+                                style: CUPERTINO_DIALOG_TITLE_STYLE,
                                 textAlign: TextAlign.center,
                                 child: title!
                             )
@@ -85,7 +85,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                             child: Padding(
                                 padding: const EdgeInsets.only(left: 20, top: 2, right: 20),
                                 child: DefaultTextStyle(
-                                    style: _kCupertinoDialogContentStyle,
+                                    style: CUPERTINO_DIALOG_CONTENT_STYLE,
                                     child: content!
                                 )
                             )
@@ -93,7 +93,7 @@ class CupertinoMaxSizeAlertDialog extends StatelessWidget
                         Padding(
                             padding: const EdgeInsets.only(top: 20),
                             child: DefaultTextStyle(
-                                style: _kCupertinoDialogActionStyle,
+                                style: CUPERTINO_DIALOG_ACTION_STYLE,
                                 textAlign: TextAlign.center,
                                 child: Column(
                                     children: <Widget>[

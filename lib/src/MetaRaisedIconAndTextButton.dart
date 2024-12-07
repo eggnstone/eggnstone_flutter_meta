@@ -4,7 +4,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'ColorConstants.dart';
 import 'Meta.dart';
 import 'MetaStringTools.dart';
 
@@ -12,14 +11,14 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
 {
     final Color? color;
     final Icon icon;
-    final String? text;
+    final String text;
     // TODO: fix or not? final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaRaisedIconAndTextButton({
         required this.icon,
+        required this.text,
         this.color,
-        this.text,
         // TODO: fix or not? this.textColor,
         this.onPressed,
         super.key
@@ -45,7 +44,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                     children: <Widget>[
                         actualIcon,
                         const SizedBox(width: 16),
-                        Text(text!, ),// TODO: fix or not? style: actualTextStyle)
+                        Text(text),// TODO: fix or not? style: actualTextStyle)
                     ]
                 ),
                 color: actualColor,
@@ -69,7 +68,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                 children: <Widget>[
                     actualIcon,
                     const SizedBox(width: 16),
-                    Text(MetaStringTools.toUpperCase(text)!)
+                    Text(MetaStringTools.toUpperCase(text))
                 ]
             ),
             // TODO: fix or not? color: actualColor,
