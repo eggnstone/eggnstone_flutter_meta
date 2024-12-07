@@ -2,8 +2,8 @@ import 'package:eggnstone_flutter_meta/eggnstone_flutter_meta.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook_annotation;
 
-import '../ExpandedShowcase.dart';
-import '../WidgetbookTools.dart';
+import '../Tools/ExpandedShowcase.dart';
+import '../Tools/WidgetbookTools.dart';
 
 @widgetbook_annotation.UseCase(name: '<normal with ElevatedButtonScheme>', type: MetaRaisedTextButton)
 Widget buildMetaRaisedTextButtonWithElevatedButtonScheme(BuildContext context)

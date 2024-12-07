@@ -2,7 +2,7 @@ import 'package:eggnstone_flutter_meta/eggnstone_flutter_meta.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook_annotation;
 
-import '../WidgetbookTools.dart';
+import '../Tools/WidgetbookTools.dart';
 
 @widgetbook_annotation.UseCase(name: '<normal>', type: MetaAlertDialog)
 Widget buildMetaAlertDialog(BuildContext context)
