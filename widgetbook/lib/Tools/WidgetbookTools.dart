@@ -7,6 +7,10 @@ class WidgetbookTools
     {
     }
 
+    static void dummyOnChangedBool(_)
+    {
+    }
+
     static Color? getRedColors(BuildContext context)
     {
         final bool useSpecificColor = context.knobs.boolean(label: 'color=red');
