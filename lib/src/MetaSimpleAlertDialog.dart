@@ -31,8 +31,7 @@ class MetaSimpleAlertDialog
         return showDialog(
             context: context,
             builder: (BuildContext context)
-            =>
-            MetaAlertDialog(
+            => MetaAlertDialog(
                 title: title == null ? null : Text(title),
                 content: content == null ? null : Text(content), actions: actions
             )

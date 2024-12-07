@@ -14,14 +14,14 @@ import 'Meta.dart';
 /// to separate the content from the other edges of the dialog.
 class MetaAlertDialog extends StatelessWidget
 {
-    final List<Widget>? actions;
+    final List<Widget> actions;
     final Widget? content;
     final EdgeInsetsGeometry? overrideMaterialDefaultContentPadding;
     final EdgeInsetsGeometry? overrideMaterialDefaultTitlePadding;
     final Widget? title;
 
     const MetaAlertDialog({
-        this.actions,
+        required this.actions,
         this.content,
         this.overrideMaterialDefaultContentPadding,
         this.overrideMaterialDefaultTitlePadding,
@@ -47,7 +47,7 @@ class MetaAlertDialog extends StatelessWidget
                 // has no titlePadding
                 content: actualContent,
                 // has no contentPadding
-                actions: actions!
+                actions: actions
             );
 
         // contentPadding must not be null hence putting in the default here

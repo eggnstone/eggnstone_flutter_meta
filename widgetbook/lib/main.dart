@@ -1,4 +1,5 @@
 import 'package:eggnstone_flutter_meta/eggnstone_flutter_meta.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
@@ -28,14 +29,16 @@ class WidgetbookApp extends StatelessWidget
                         data: MetaThemeData.createMaterialThemeWithBrightness(
                             context: context,
                             brightness: Brightness.dark,
-                            color: Colors.green)
+                            color: Colors.pink
+                        )
                     ),
                     WidgetbookTheme<ThemeData>(
                         name: 'Light',
                         data: MetaThemeData.createMaterialThemeWithBrightness(
                             context: context,
                             brightness: Brightness.light,
-                            color: Colors.red)
+                            color: Colors.deepPurpleAccent
+                        )
                     )
                 ]
             ),
@@ -45,8 +48,9 @@ class WidgetbookApp extends StatelessWidget
                     const Locale('de', 'DE')
                 ],
                 localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-                    DefaultWidgetsLocalizations.delegate,
-                    DefaultMaterialLocalizations.delegate
+                    DefaultCupertinoLocalizations.delegate,
+                    DefaultMaterialLocalizations.delegate,
+                    DefaultWidgetsLocalizations.delegate
                 ]
             ),
             TextScaleAddon(
