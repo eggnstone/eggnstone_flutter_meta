@@ -53,7 +53,7 @@ class MetaRaisedTextButton extends StatelessWidget
         return ElevatedButton(
             child: Text(MetaStringTools.toUpperCase(text)),
             // TODO: fix or not? color: actualColor,
-            onPressed: onPressed,
+            onPressed: onPressed
             // TODO: FIX !!!!!!!!!! textColor: actualContentColor
         );
     }

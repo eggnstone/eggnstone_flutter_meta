@@ -33,9 +33,9 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
             final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
             // TODO: fix or not? final Color actualContentColor = textColor ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
             // TODO: fix or not? final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
-            final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size,
-                // TODO: fix or not? color: actualContentColor
-            ) : icon;
+            final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size
+                    // TODO: fix or not? color: actualContentColor
+                ) : icon;
 
             return CupertinoButton(
                 child: Row(
@@ -44,7 +44,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                     children: <Widget>[
                         actualIcon,
                         const SizedBox(width: 16),
-                        Text(text),// TODO: fix or not? style: actualTextStyle)
+                        Text(text)// TODO: fix or not? style: actualTextStyle)
                     ]
                 ),
                 color: actualColor,
@@ -57,9 +57,9 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
         // TODO: fix or not? final ThemeData materialTheme = Theme.of(context);
         // TODO: fix or not? final Color? actualColor = color ?? materialTheme.buttonColor;
         // TODO: fix or not? final Color actualContentColor = textColor ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
-        final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size,
-            // TODO: fix or not? color: actualContentColor
-        ) : icon;
+        final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size
+                // TODO: fix or not? color: actualContentColor
+            ) : icon;
 
         return ElevatedButton(
             child: Row(
@@ -72,7 +72,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                 ]
             ),
             // TODO: fix or not? color: actualColor,
-            onPressed: onPressed,
+            onPressed: onPressed
             // TODO: fix or not? textColor: actualContentColor
         );
     }
