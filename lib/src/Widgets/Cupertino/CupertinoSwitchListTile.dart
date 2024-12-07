@@ -8,14 +8,14 @@ class CupertinoSwitchListTile extends StatelessWidget
 {
     final Widget? title;
     final Widget? subtitle;
-    final bool? value;
+    final bool value;
     final ValueChanged<bool>? onChanged;
     final Color? activeColor;
 
     const CupertinoSwitchListTile({
+        required this.value,
         this.title,
         this.subtitle,
-        this.value,
         this.activeColor,
         this.onChanged,
         super.key
@@ -27,7 +27,7 @@ class CupertinoSwitchListTile extends StatelessWidget
         title: title,
         subtitle: subtitle,
         trailing: CupertinoSwitch(
-            value: value!,
+            value: value,
             onChanged: onChanged,
             activeColor: activeColor
         )

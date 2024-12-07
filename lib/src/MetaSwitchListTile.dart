@@ -3,41 +3,48 @@
 import 'package:flutter/cupertino.dart';
 
 import 'Meta.dart';
+import 'MetaDesign.dart';
+import 'StatelessMetaWidget.dart';
 import 'Widgets/Cupertino/CupertinoSwitchListTile.dart';
 import 'Widgets/Material/MaterialSwitchListTile.dart';
 
-class MetaSwitchListTile extends StatelessWidget
+class MetaSwitchListTile extends StatelessMetaWidget
 {
     final ValueChanged<bool>? onChanged;
     final Widget? subtitle;
     final Widget? title;
-    final bool? value;
+    final bool value;
 
     const MetaSwitchListTile({
-        this.onChanged,
+        required this.value,
         this.subtitle,
         this.title,
-        this.value,
+        this.onChanged,
+        super.brightness,
+        super.design,
         super.key
     });
 
     @override
     Widget build(BuildContext context)
     {
-        if (Meta.isDesignCupertino)
+        if (design == MetaDesign.Cupertino || (Meta.isDesignCupertino && design == null))
         {
-            final Color activeColor = CupertinoTheme
-                .of(context)
-                .primaryColor;
-
-            return CupertinoSwitchListTile(activeColor: activeColor,
-                onChanged: onChanged,
+            final Color activeColor = CupertinoTheme.of(context).primaryColor;
+            return CupertinoSwitchListTile(
+                activeColor: activeColor,
                 subtitle: subtitle,
                 title: title,
-                value: value
+                value: value,
+                onChanged: onChanged
             );
         }
 
-        return MaterialSwitchListTile(onChanged: onChanged, subtitle: subtitle, title: title, value: value);
+        return MaterialSwitchListTile(
+            subtitle: subtitle, 
+            title: title, 
+            value: value,
+            onChanged: onChanged 
+        );
     }
 }
