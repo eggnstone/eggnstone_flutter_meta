@@ -4,7 +4,7 @@ class ExpandedShowcase extends StatelessWidget
 {
     final Widget child;
 
-    const ExpandedShowcase({required this.child, super.key});
+    const ExpandedShowcase(this.child, {super.key});
 
     @override
     Widget build(BuildContext context)

@@ -6,29 +6,24 @@ import '../ExpandedShowcase.dart';
 
 @widgetbook_annotation.UseCase(name: '<normal>', type: MetaAlertDialogButton)
 Widget buildMetaAlertDialogButton(BuildContext context)
-=> const ExpandedShowcase(
-    child: MetaAlertDialogButton(
-        text: 'Text'
-    )
-);
-
-@widgetbook_annotation.UseCase(name: 'Why different between Cupertino and Material?', type: MetaAlertDialogButton)
-Widget buildMetaAlertDialogButton2(BuildContext context)
-=> const MetaAlertDialogButton(
-    text: 'Text'
-);
+=> ExpandedShowcase(_createMetaAlertDialogButton());
 
 @widgetbook_annotation.UseCase(name: 'Red', type: MetaAlertDialogButton)
 Widget buildMetaAlertDialogButtonRed(BuildContext context)
 {
     final TextStyle defaultTextStyle = DefaultTextStyle.of(context).style.copyWith(color: Colors.red);
-
     return ExpandedShowcase(
-        child: DefaultTextStyle(
+        DefaultTextStyle(
             style: defaultTextStyle,
-            child: const MetaAlertDialogButton(
-                text: 'Text'
-            )
+            child: _createMetaAlertDialogButton()
         )
+
     );
 }
+
+@widgetbook_annotation.UseCase(name: 'Why different between Cupertino and Material?', type: MetaAlertDialogButton)
+Widget buildMetaAlertDialogButton2(BuildContext context)
+=> _createMetaAlertDialogButton();
+
+Widget _createMetaAlertDialogButton() =>
+const MetaAlertDialogButton(text: 'Text');

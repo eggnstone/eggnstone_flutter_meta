@@ -58,12 +58,21 @@ final directories = <_i1.WidgetbookNode>[
     name: 'MetaRaisedTextButton',
     useCases: [
       _i1.WidgetbookUseCase(
-        name: '<normal>',
-        builder: _i4.buildMetaRaisedTextButton,
+        name: '<normal with ElevatedButtonScheme>',
+        builder: _i4.buildMetaRaisedTextButtonWithElevatedButtonScheme,
       ),
       _i1.WidgetbookUseCase(
-        name: 'Disabled',
-        builder: _i4.buildMetaRaisedTextButtonDisabled,
+        name: '<normal without ElevatedButtonScheme>',
+        builder: _i4.buildMetaRaisedTextButtonWithoutElevatedButtonScheme,
+      ),
+      _i1.WidgetbookUseCase(
+        name: 'Disabled with ElevatedButtonScheme',
+        builder: _i4.buildMetaRaisedTextButtonDisabledWithElevatedButtonScheme,
+      ),
+      _i1.WidgetbookUseCase(
+        name: 'Disabled without ElevatedButtonScheme',
+        builder:
+            _i4.buildMetaRaisedTextButtonDisabledWithoutElevatedButtonScheme,
       ),
     ],
   ),

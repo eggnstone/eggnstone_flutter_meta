@@ -1,9 +1,9 @@
-
 // ignore_for_file: diagnostic_describe_all_properties
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'ColorConstants.dart';
 import 'Meta.dart';
 import 'MetaStringTools.dart';
 
@@ -27,12 +27,17 @@ class MetaRaisedTextButton extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            final CupertinoThemeData theme = CupertinoTheme.of(context);
-            final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
-            //final Color actualContentColor = textColor; // TODO: fix or not? ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
-            final Color? actualContentColor = textColor; // TODO: fix or not? ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
-            final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
+            final CupertinoThemeData cupertinoTheme = CupertinoTheme.of(context);
+            // TODO: check grey[300]
+            final Color? actualColor = color ?? (cupertinoTheme.brightness == Brightness.dark ? cupertinoTheme.primaryColor : Colors.grey[300]);
 
+            Color? actualContentColor = textColor;
+            if (actualContentColor == null && actualColor != null)
+                actualContentColor = actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black;
+
+            final TextStyle actualTextStyle = cupertinoTheme.textTheme.textStyle.copyWith(color: actualContentColor);
+
+            // TODO: is there a CupertinoButtonTheme?
             return CupertinoButton(
                 child: Text(text, style: actualTextStyle),
                 color: actualColor,
@@ -42,19 +47,56 @@ class MetaRaisedTextButton extends StatelessWidget
             );
         }
 
-        // TODO: fix or not? final ThemeData materialTheme = Theme.of(context);
-        // TODO: fix or not? final Color? actualColor = color ?? materialTheme.buttonColor;
-        //final Color actualContentColor = textColor; // TODO: fix or not? ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
-        // TODO: fix or not? final Color? actualContentColor = textColor; // TODO: fix or not? ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
+        final ThemeData materialTheme = Theme.of(context);
+        final ButtonStyle? elevatedButtonStyle = materialTheme.elevatedButtonTheme.style;
 
-        /*final ThemeData theme = Theme.of(context);
-        final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);*/
+        final Color? actualColor = color ?? elevatedButtonStyle?.backgroundColor?.resolve(<WidgetState>{});
+
+        Color? actualContentColor = textColor;
+        if (actualContentColor == null && actualColor != null)
+            actualContentColor = actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black;
+
+        WidgetStateProperty<Color?>? newBackgroundColor;
+        if (actualColor != null)
+            newBackgroundColor = WidgetStateColor.resolveWith((Set<WidgetState> states)
+                {
+                    if (states.contains(WidgetState.disabled))
+                        return elevatedButtonStyle?.backgroundColor?.resolve(<WidgetState>{}) ?? ColorConstants.ELEVATED_BUTTON__DISABLED_COLOR;
+
+                    return actualColor;
+                }
+            ); 
+
+        WidgetStateProperty<Color?>? newForegroundColor;
+        if (actualContentColor != null)
+            newForegroundColor = WidgetStateColor.resolveWith((Set<WidgetState> states)
+                {
+                    if (states.contains(WidgetState.disabled))
+                        return Colors.grey;
+
+                    return actualContentColor!;
+                }
+            );
+
+        ButtonStyle? actualButtonStyle;
+        if (actualColor != null || actualContentColor != null)
+        {
+            if (elevatedButtonStyle == null)
+                actualButtonStyle = ButtonStyle(
+                    backgroundColor: newBackgroundColor,
+                    foregroundColor: newForegroundColor
+                );
+            else
+                actualButtonStyle = elevatedButtonStyle.copyWith(
+                    backgroundColor: newBackgroundColor,
+                    foregroundColor: newForegroundColor
+                );
+        }
 
         return ElevatedButton(
             child: Text(MetaStringTools.toUpperCase(text)),
-            // TODO: fix or not? color: actualColor,
+            style: actualButtonStyle,
             onPressed: onPressed
-            // TODO: FIX !!!!!!!!!! textColor: actualContentColor
         );
     }
 }

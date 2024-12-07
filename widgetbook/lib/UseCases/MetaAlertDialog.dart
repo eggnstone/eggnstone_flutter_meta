@@ -2,6 +2,8 @@ import 'package:eggnstone_flutter_meta/eggnstone_flutter_meta.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook_annotation;
 
+import '../WidgetbookTools.dart';
+
 @widgetbook_annotation.UseCase(name: '<normal>', type: MetaAlertDialog)
 Widget buildMetaAlertDialog(BuildContext context)
 => const MetaAlertDialog(
@@ -10,11 +12,11 @@ Widget buildMetaAlertDialog(BuildContext context)
     actions: <Widget>[
         MetaAlertDialogButton(
             text: 'Cancel',
-            onPressed: _dummyOnPressed
+            onPressed: WidgetbookTools.dummyOnPressed
         ),
         MetaAlertDialogButton(
             text: 'Ok',
-            onPressed: _dummyOnPressed
+            onPressed: WidgetbookTools.dummyOnPressed
         )
     ]
 );
@@ -27,12 +29,12 @@ Widget buildMetaAlertDialogDestructive(BuildContext context)
     actions: <Widget>[
         MetaAlertDialogButton(
             text: 'Cancel',
-            onPressed: _dummyOnPressed
+            onPressed: WidgetbookTools.dummyOnPressed
         ),
         MetaAlertDialogButton(
             isDestructiveAction: true,
             text: 'Delete',
-            onPressed: _dummyOnPressed
+            onPressed: WidgetbookTools.dummyOnPressed
         )
     ]
 );
@@ -45,7 +47,7 @@ Widget buildMetaAlertDialogOkDisabled(BuildContext context)
     actions: <Widget>[
         MetaAlertDialogButton(
             text: 'Cancel',
-            onPressed: _dummyOnPressed
+            onPressed: WidgetbookTools.dummyOnPressed
         ),
         MetaAlertDialogButton(
             text: 'Ok'
@@ -61,18 +63,14 @@ Widget buildMetaAlertDialogThreeActionsMiddleDisabled(BuildContext context)
     actions: <Widget>[
         MetaAlertDialogButton(
             text: 'Left',
-            onPressed: _dummyOnPressed
+            onPressed: WidgetbookTools.dummyOnPressed
         ),
         MetaAlertDialogButton(
             text: 'Middle'
         ),
         MetaAlertDialogButton(
             text: 'Right',
-            onPressed: _dummyOnPressed
+            onPressed: WidgetbookTools.dummyOnPressed
         )
     ]
 );
-
-void _dummyOnPressed()
-{
-}

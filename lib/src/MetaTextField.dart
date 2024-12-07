@@ -1,4 +1,3 @@
-
 // ignore_for_file: diagnostic_describe_all_properties
 
 import 'package:eggnstone_dart/eggnstone_dart.dart';
