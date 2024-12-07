@@ -1,4 +1,5 @@
 enum MetaDesign
 {
-    Cupertino, Material
+    Cupertino,
+    Material
 }

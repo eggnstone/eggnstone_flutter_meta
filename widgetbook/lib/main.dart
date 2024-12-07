@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 
+import 'MetaDesignAddon.dart';
 import 'main.directories.g.dart';
 
 void main()
@@ -17,51 +18,50 @@ class WidgetbookApp extends StatelessWidget
 
     @override
     Widget build(BuildContext context)
-    {
-        return Widgetbook.material(
-            addons: [
-                MaterialThemeAddon(
-                    themes: [
-                        WidgetbookTheme(
-                            name: 'Dark',
-                            data: MetaThemeData.createMaterialThemeWithBrightness(
-                                context: context,
-                                brightness: Brightness.dark,
-                                color: Colors.green)
-                        ),
-                        WidgetbookTheme(
-                            name: 'Light',
-                            data: MetaThemeData.createMaterialThemeWithBrightness(
-                                context: context,
-                                brightness: Brightness.light,
-                                color: Colors.red)
-                        )
-                    ]
-                ),
-                LocalizationAddon(
-                    locales: [
-                        const Locale('en', 'US'),
-                        const Locale('de', 'DE')
-                    ],
-                    localizationsDelegates: [
-                        DefaultWidgetsLocalizations.delegate,
-                        DefaultMaterialLocalizations.delegate
-                    ]
-                ),
-                TextScaleAddon(
-                    initialScale: 1.0,
-                    min: 1.0,
-                    max: 2.0
-                ),
-                DeviceFrameAddon(
-                    devices: [
-                        Devices.android.samsungGalaxyS20,
-                        Devices.ios.iPhone13
-                    ]
-                )
-                //GridAddon()
-            ],
-            directories: directories
-        );
-    }
+    => Widgetbook.material(
+        addons: <WidgetbookAddon>[
+            MetaDesignAddon(),
+            MaterialThemeAddon(
+                themes: <WidgetbookTheme<ThemeData>>[
+                    WidgetbookTheme<ThemeData>(
+                        name: 'Dark',
+                        data: MetaThemeData.createMaterialThemeWithBrightness(
+                            context: context,
+                            brightness: Brightness.dark,
+                            color: Colors.green)
+                    ),
+                    WidgetbookTheme<ThemeData>(
+                        name: 'Light',
+                        data: MetaThemeData.createMaterialThemeWithBrightness(
+                            context: context,
+                            brightness: Brightness.light,
+                            color: Colors.red)
+                    )
+                ]
+            ),
+            LocalizationAddon(
+                locales: <Locale>[
+                    const Locale('en', 'US'),
+                    const Locale('de', 'DE')
+                ],
+                localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+                    DefaultWidgetsLocalizations.delegate,
+                    DefaultMaterialLocalizations.delegate
+                ]
+            ),
+            TextScaleAddon(
+                divisions: 2,
+                initialScale: 1,
+                min: 1
+            ),
+            DeviceFrameAddon(
+                devices: <DeviceInfo>[
+                    Devices.android.samsungGalaxyS20,
+                    Devices.ios.iPhone13
+                ]
+            )
+        //GridAddon()
+        ],
+        directories: directories
+    );
 }
