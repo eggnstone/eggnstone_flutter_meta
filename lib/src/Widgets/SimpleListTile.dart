@@ -17,26 +17,26 @@ class SimpleListTile extends StatelessWidget
     @override
     Widget build(BuildContext context)
     {
-        final List<Widget?> rowChildren = <Widget?>[];
-        final List<Widget?> columnChildren = <Widget?>[];
+        final List<Widget> rowChildren = <Widget>[];
+        final List<Widget> columnChildren = <Widget>[];
 
         if (title != null)
-            columnChildren.add(title);
+            columnChildren.add(title!);
 
         if (subtitle != null)
-            columnChildren.add(subtitle);
+            columnChildren.add(subtitle!);
 
         if (columnChildren.isEmpty)
             rowChildren.add(Expanded(child: Container()));
         else
-            rowChildren.add(Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: columnChildren as List<Widget>)));
+            rowChildren.add(Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: columnChildren)));
 
         if (trailing != null)
-            rowChildren.add(trailing);
+            rowChildren.add(trailing!);
 
         if (columnChildren.isEmpty)
             return Container();
 
-        return Row(children: rowChildren as List<Widget>);
+        return Row(children: rowChildren);
     }
 }

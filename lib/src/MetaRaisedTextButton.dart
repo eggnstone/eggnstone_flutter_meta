@@ -4,18 +4,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'ColorConstants.dart';
 import 'Meta.dart';
 import 'MetaStringTools.dart';
 
 class MetaRaisedTextButton extends StatelessWidget
 {
-    // TODO: fix or not? final Color? color;
+    final Color? color;
     final String? text;
     final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaRaisedTextButton({
-        // TODO: fix or not? this.color,
+        this.color,
         this.text,
         this.textColor,
         this.onPressed,
@@ -28,14 +29,14 @@ class MetaRaisedTextButton extends StatelessWidget
         if (Meta.isDesignCupertino)
         {
             final CupertinoThemeData theme = CupertinoTheme.of(context);
-            // TODO: fix or not? final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
+            final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
             //final Color actualContentColor = textColor; // TODO: fix or not? ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
             final Color? actualContentColor = textColor; // TODO: fix or not? ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
             final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
 
             return CupertinoButton(
                 child: Text(text!, style: actualTextStyle),
-                // TODO: fix or not? color: actualColor,
+                color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)

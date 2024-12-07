@@ -4,12 +4,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'ColorConstants.dart';
 import 'Meta.dart';
 import 'MetaStringTools.dart';
 
 class MetaRaisedIconAndTextButton extends StatelessWidget
 {
-    // TODO: fix or not? final Color? color;
+    final Color? color;
     final Icon icon;
     final String? text;
     // TODO: fix or not? final Color? textColor;
@@ -17,7 +18,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
 
     const MetaRaisedIconAndTextButton({
         required this.icon,
-        // TODO: fix or not? this.color,
+        this.color,
         this.text,
         // TODO: fix or not? this.textColor,
         this.onPressed,
@@ -29,8 +30,8 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            // TODO: fix or not? final CupertinoThemeData theme = CupertinoTheme.of(context);
-            // TODO: fix or not? final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
+            final CupertinoThemeData theme = CupertinoTheme.of(context);
+            final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
             // TODO: fix or not? final Color actualContentColor = textColor ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
             // TODO: fix or not? final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
             final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size,
@@ -47,7 +48,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                         Text(text!, ),// TODO: fix or not? style: actualTextStyle)
                     ]
                 ),
-                // TODO: fix or not? color: actualColor,
+                color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)

@@ -3,18 +3,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'ColorConstants.dart';
 import 'Meta.dart';
 
 class MetaRaisedWidgetButton extends StatelessWidget
 {
     final Widget? child;
-    // TODO: fix or not? final Color? color;
+    final Color? color;
     // TODO: fix or not? final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaRaisedWidgetButton({
         this.child,
-        // TODO: fix or not? this.color,
+        this.color,
         // TODO: fix or not? this.textColor,
         this.onPressed,
         super.key
@@ -25,12 +26,12 @@ class MetaRaisedWidgetButton extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            // TODO: fix or not? final CupertinoThemeData theme = CupertinoTheme.of(context);
-            // TODO: fix or not? final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
+            final CupertinoThemeData theme = CupertinoTheme.of(context);
+            final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
 
             return CupertinoButton(
                 child: child!,
-                // TODO: fix or not? color: actualColor,
+                color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
