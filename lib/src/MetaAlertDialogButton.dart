@@ -26,9 +26,15 @@ class MetaAlertDialogButton extends StatelessWidget
         if (Meta.isDesignCupertino)
         {
             final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
+            final Color textColor = onPressed == null
+                ? CupertinoColors.inactiveGray
+                : isDestructiveAction
+                    ? CupertinoColors.destructiveRed
+                    : CupertinoColors.activeBlue;
+
             return CupertinoDialogAction(
                 child: Text(text),
-                textStyle: defaultTextStyle.style,
+                textStyle: defaultTextStyle.style.copyWith(color: textColor),
                 isDestructiveAction: isDestructiveAction,
                 onPressed: onPressed
             );

@@ -27,6 +27,14 @@ final directories = <_i1.WidgetbookNode>[
         name: 'Destructive action',
         builder: _i2.buildMetaAlertDialogDestructive,
       ),
+      _i1.WidgetbookUseCase(
+        name: 'OK is disabled',
+        builder: _i2.buildMetaAlertDialogOkDisabled,
+      ),
+      _i1.WidgetbookUseCase(
+        name: 'Three actions, middle disabled',
+        builder: _i2.buildMetaAlertDialogThreeActionsMiddleDisabled,
+      ),
     ],
   ),
   _i1.WidgetbookComponent(

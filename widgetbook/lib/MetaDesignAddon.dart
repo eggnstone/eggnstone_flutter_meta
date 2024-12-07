@@ -2,47 +2,52 @@ import 'package:eggnstone_flutter_meta/eggnstone_flutter_meta.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 
-class MetaDesignAddon extends WidgetbookAddon<MetaDesign?>
+import 'NullableEnum.dart';
+
+class MetaDesignAddon extends WidgetbookAddon<NullableEnum<MetaDesign>>
 {
-    final MetaDesign? initialMetaDesign;
+    final NullableEnum<MetaDesign> initialMetaDesign;
 
     MetaDesignAddon({
-        this.initialMetaDesign
+        this.initialMetaDesign = const NullableEnum<MetaDesign>(null)
     }) : super(name: 'MetaDesign');
 
     @override
     Widget buildUseCase(
         BuildContext context,
         Widget child,
-        MetaDesign? setting
+        NullableEnum<MetaDesign> setting
     )
     {
-        Meta.forceDesign = setting;
+        //print('buildUseCase: $setting');
+        Meta.forceDesign = setting.value;
         return child;
     }
 
     @override
-    List<Field<MetaDesign?>> get fields
-    => <Field<MetaDesign?>>[
-        ListField<MetaDesign?>(
+    List<Field<NullableEnum<MetaDesign>>> get fields
+    => <Field<NullableEnum<MetaDesign>>>[
+        ListField<NullableEnum<MetaDesign>>(
             initialValue: initialMetaDesign,
-            labelBuilder: (MetaDesign? value)
-            => switch (value)
+            labelBuilder: (NullableEnum<MetaDesign> value)
+            => switch (value.value)
             {
-                MetaDesign.Cupertino => 'Cupertino',
+                MetaDesign.Cupertino  => 'Cupertino',
                 MetaDesign.Material => 'Material',
+                //MetaDesign.Web => 'Web',
                 null => 'Auto'
             },
             name: 'MetaDesign',
-            values: <MetaDesign?>[
-                null,
-                MetaDesign.Cupertino,
-                MetaDesign.Material
+            values: <NullableEnum<MetaDesign>>[
+                const NullableEnum<MetaDesign>(null),
+                const NullableEnum<MetaDesign>(MetaDesign.Cupertino),
+                const NullableEnum<MetaDesign>(MetaDesign.Material)
+            //const NullableEnum<MetaDesign>(MetaDesign.Web)
             ]
         )
     ];
 
     @override
-    MetaDesign? valueFromQueryGroup(Map<String, String> group)
-    => valueOf<MetaDesign?>('MetaDesign', group);
+    NullableEnum<MetaDesign> valueFromQueryGroup(Map<String, String> group)
+    => valueOf<NullableEnum<MetaDesign>>('MetaDesign', group)!;
 }

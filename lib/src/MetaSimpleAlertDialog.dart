@@ -42,23 +42,34 @@ class MetaSimpleAlertDialog
         final List<Widget> actions = <Widget>[];
 
         // TODO: upper case?
+        // TODO: why is "Material" required? In an actual app it shows text as red with double yellow underline.
 
         if (dismissText != null)
-            actions.add(MetaAlertDialogButton(
-                    text: dismissText, 
-                    onPressed: dismissAction
+            actions.add(
+                Material(
+                    color: Colors.transparent,
+                    child: MetaAlertDialogButton(
+                        text: dismissText, 
+                        onPressed: dismissAction
+                    )
                 )
             );
 
         if (confirmText != null)
-            actions.add(MetaAlertDialogButton(
-                    text: confirmText, 
-                    isDestructiveAction: isDestructiveAction, 
-                    onPressed: confirmAction
+            actions.add(
+                Material(
+                    color: Colors.transparent,
+                    child: MetaAlertDialogButton(
+                        text: confirmText, 
+                        isDestructiveAction: isDestructiveAction, 
+                        onPressed: confirmAction
+                    )
                 )
             );
 
-        return showDialog(context: context, builder: (BuildContext context)
+        return showDialog(
+            context: context,
+            builder: (BuildContext context)
             => MetaAlertDialog(
                 title: title, 
                 content: content, 
