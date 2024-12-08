@@ -8,7 +8,7 @@ import '../MetaRaisedIconAndTextButton.dart';
 import '../MetaRaisedTextButton.dart';
 import '../MetaRaisedWidgetButton.dart';
 import 'CardPadding.dart';
-import 'MetaRaisedButtonPadding.dart';
+import '../MetaRaisedButtonPadding.dart';
 import 'NormalPadding.dart';
 import 'PaddingConsts.dart';
 

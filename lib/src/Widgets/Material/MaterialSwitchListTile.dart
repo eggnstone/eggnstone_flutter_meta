@@ -27,10 +27,10 @@ class MaterialSwitchListTile extends StatelessWidget
         title: title,
         subtitle: subtitle,
         trailing: Switch(
+            activeColor: activeColor,
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             value: value,
-            onChanged: onChanged,
-            activeColor: activeColor
+            onChanged: onChanged
         )
     );
 }

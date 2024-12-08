@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'ColorTools.dart';
+import 'Helpers/SwitchDefaultsM2.dart';
 import 'Meta.dart';
+import 'Tools/ColorTools.dart';
 
 class MetaThemeData
 {
@@ -82,8 +83,11 @@ class MetaThemeData
             // selected text
             ////TODO: MIGRATE: textSelectionColor: color?.withOpacity(0.5),
 
-            // Switch-Material, Radio-Material, Checkbox-Material
+            // Radio-Material, Checkbox-Material
             ////TODO: MIGRATE: toggleableActiveColor: color,
+
+            // Migrated for Switch-Material: toggleableActiveColor: color,
+            switchTheme: SwitchDefaultsM2.create(context, color),
 
             textTheme: TextTheme(
                 // Migrated: bodyText2: textStyleBody1,

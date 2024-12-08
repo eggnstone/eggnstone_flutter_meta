@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 
 class TestTools
 {
-    static Widget createMetaApp({required BuildContext? context, required Color? primaryColor, required Widget child})
+    static Widget createMetaApp({
+        required BuildContext? context,
+        required Color? primaryColor,
+        required Widget child
+    })
     // MetaApp has been deleted because it was hardcoded to MaterialApp.
     => MaterialApp(
         // MetaScaffold has been deleted because it was hardcoded to Scaffold.

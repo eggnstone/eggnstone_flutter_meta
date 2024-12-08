@@ -4,11 +4,11 @@ import 'package:flutter/cupertino.dart';
 
 import 'Meta.dart';
 import 'MetaDesign.dart';
-import 'StatelessMetaWidget.dart';
+import 'MetaStatelessWidget.dart';
 import 'Widgets/Cupertino/CupertinoSwitchListTile.dart';
 import 'Widgets/Material/MaterialSwitchListTile.dart';
 
-class MetaSwitchListTile extends StatelessMetaWidget
+class MetaSwitchListTile extends MetaStatelessWidget
 {
     final ValueChanged<bool>? onChanged;
     final Widget? subtitle;

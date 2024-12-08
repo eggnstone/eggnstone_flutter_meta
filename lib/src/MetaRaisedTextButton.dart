@@ -3,9 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'ColorConstants.dart';
+import 'Constants/ColorConstants.dart';
 import 'Meta.dart';
-import 'MetaStringTools.dart';
+import 'Tools/MetaStringTools.dart';
 
 class MetaRaisedTextButton extends StatelessWidget
 {

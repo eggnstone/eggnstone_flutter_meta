@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 
-import 'PaddingConsts.dart';
+import 'Padding/PaddingConsts.dart';
 
 class MetaRaisedButtonPadding extends StatelessWidget
 {

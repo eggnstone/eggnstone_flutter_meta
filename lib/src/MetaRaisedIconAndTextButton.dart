@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Meta.dart';
-import 'MetaStringTools.dart';
+import 'Tools/MetaStringTools.dart';
 
 class MetaRaisedIconAndTextButton extends StatelessWidget
 {
