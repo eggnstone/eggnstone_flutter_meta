@@ -1,6 +1,7 @@
 // ignore_for_file: diagnostic_describe_all_properties
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../SimpleListTile.dart';
 
@@ -29,7 +30,9 @@ class CupertinoSwitchListTile extends StatelessWidget
         trailing: CupertinoSwitch(
             value: value,
             onChanged: onChanged,
-            activeColor: activeColor
+            //activeColor: activeColor,
+            //activeColor: Colors.yellow,
+            //applyTheme: true
         )
     );
 }

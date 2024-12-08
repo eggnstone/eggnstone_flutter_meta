@@ -7,8 +7,8 @@ import 'MetaDesign.dart';
 
 abstract class MetaStatelessWidget extends StatelessWidget
 {
-    final Brightness? brightness;
+    //final Brightness? brightness;
     final MetaDesign? design;
 
-    const MetaStatelessWidget({this.brightness, this.design, super.key});
+    const MetaStatelessWidget({/*this.brightness,*/ this.design, super.key});
 }

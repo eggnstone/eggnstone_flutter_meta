@@ -87,7 +87,8 @@ class MetaThemeData
             ////TODO: MIGRATE: toggleableActiveColor: color,
 
             // Migrated for Switch-Material: toggleableActiveColor: color,
-            switchTheme: SwitchDefaultsM2.create(context, color),
+            //switchTheme: SwitchDefaultsM2.create(context, color),
+
 
             textTheme: TextTheme(
                 // Migrated: bodyText2: textStyleBody1,

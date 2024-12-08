@@ -4,16 +4,19 @@ import 'package:flutter/material.dart';
 
 class SwitchDefaultsM2 extends SwitchThemeData
 {
-    final Brightness brightness;
+    final BuildContext context;
+    final Brightness? brightness;
     final Color color;
 
-    const SwitchDefaultsM2({required this.brightness, required this.color});
+    const SwitchDefaultsM2(this.context, this.brightness, this.color);
 
     @override
     WidgetStateProperty<Color> get thumbColor
     => WidgetStateProperty.resolveWith((Set<WidgetState> states)
         {
-            final bool isDark = brightness == Brightness.dark;
+            final Brightness finalBrightness = brightness ?? Theme.of(context).brightness;
+
+            final bool isDark = finalBrightness == Brightness.dark;
 
             if (states.contains(WidgetState.disabled))
                 return isDark ? Colors.grey.shade800 : Colors.grey.shade400;
