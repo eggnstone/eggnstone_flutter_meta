@@ -45,7 +45,7 @@ class MetaRaisedWidgetButton extends StatelessWidget
             child: child,
             // TODO: fix or not? color: actualColor,
             onPressed: onPressed
-            // TODO: fix or not? textColor: actualContentColor
+        // TODO: fix or not? textColor: actualContentColor
         );
     }
 }

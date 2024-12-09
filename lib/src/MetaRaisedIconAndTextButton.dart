@@ -33,7 +33,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
             // TODO: fix or not? final Color actualContentColor = textColor ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
             // TODO: fix or not? final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
             final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size
-                    // TODO: fix or not? color: actualContentColor
+                // TODO: fix or not? color: actualContentColor
                 ) : icon;
 
             return CupertinoButton(
@@ -57,7 +57,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
         // TODO: fix or not? final Color? actualColor = color ?? materialTheme.buttonColor;
         // TODO: fix or not? final Color actualContentColor = textColor ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
         final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size
-                // TODO: fix or not? color: actualContentColor
+            // TODO: fix or not? color: actualContentColor
             ) : icon;
 
         return ElevatedButton(
@@ -72,7 +72,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
             ),
             // TODO: fix or not? color: actualColor,
             onPressed: onPressed
-            // TODO: fix or not? textColor: actualContentColor
+        // TODO: fix or not? textColor: actualContentColor
         );
     }
 }

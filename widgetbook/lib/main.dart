@@ -1,4 +1,3 @@
-import 'package:eggnstone_flutter_meta/eggnstone_flutter_meta.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
@@ -26,19 +25,11 @@ class WidgetbookApp extends StatelessWidget
                 themes: <WidgetbookTheme<ThemeData>>[
                     WidgetbookTheme<ThemeData>(
                         name: 'Dark',
-                        data: MetaThemeData.createMaterialThemeWithBrightness(
-                            context: context,
-                            brightness: Brightness.dark,
-                            color: Colors.pink
-                        )
+                        data: _createDefaultMaterialDarkThemeData(context)
                     ),
                     WidgetbookTheme<ThemeData>(
                         name: 'Light',
-                        data: MetaThemeData.createMaterialThemeWithBrightness(
-                            context: context,
-                            brightness: Brightness.light,
-                            color: Colors.deepPurpleAccent
-                        )
+                        data: _createDefaultMaterialLightThemeData(context)
                     )
                 ]
             ),
@@ -69,3 +60,17 @@ class WidgetbookApp extends StatelessWidget
         directories: directories
     );
 }
+
+ThemeData _createDefaultMaterialLightThemeData(BuildContext context)
+=> ThemeData(
+    useMaterial3: false,
+    brightness: Brightness.light,
+    switchTheme: Theme.of(context).switchTheme
+);
+
+ThemeData _createDefaultMaterialDarkThemeData(BuildContext context)
+=> ThemeData(
+    useMaterial3: false,
+    brightness: Brightness.dark,
+    switchTheme: Theme.of(context).switchTheme
+);

@@ -1,6 +1,6 @@
 enum MetaDesign
 {
     Cupertino,
-    Material,
+    Material
     //Web
 }

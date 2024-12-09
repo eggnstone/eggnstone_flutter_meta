@@ -28,13 +28,6 @@ class MetaSwitchListTile extends MetaStatelessWidget
     @override
     Widget build(BuildContext context)
     {
-        final String designText = (design == MetaDesign.Cupertino || (Meta.isDesignCupertino && design == null)) ? 'Cupertino' : 'Material';
-        //final String brightnessText = (brightness == Brightness.dark ? 'Dark' : brightness == Brightness.light ? 'Light' : 'Auto');
-        final String stateText = onChanged == null ? 'disabled' : 'enabled';
-        final String valueText = value ? 'true' : 'false';
-
-        //return Text('$designText $stateText $brightnessText $valueText');
-
         if (design == MetaDesign.Cupertino || (Meta.isDesignCupertino && design == null))
         {
             //final Color activeColor = CupertinoTheme.of(context).primaryColor;
