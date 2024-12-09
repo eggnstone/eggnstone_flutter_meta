@@ -28,7 +28,7 @@ Widget _createSwitches(BuildContext context)
             Text('Design', style: textStyleLarge),
             Text('Disabled/Enabled State', style: textStyleMedium),
             Text('Default/Custom Theme', style: textStyleMedium),
-            Text('NoTheme/Auto/Light/Dark Brightness', style: textStyleSmall),
+            Text(/*'NoTheme/'+*/'Auto/Light/Dark Brightness', style: textStyleSmall),
             Text('False/True Value', style: textStyleSmall),
             const SizedBox(height: 8),
             _createSwitchesBlockByMetaDesign(context, 'Auto', null),
@@ -63,7 +63,7 @@ Widget _createSwitchesBlockByState(BuildContext context,  MetaDesign? metaDesign
 Widget _createSwitchesBlockByTheme(BuildContext context,  MetaDesign? metaDesign, {required bool isEnabled, required bool useCustomTheme})
 => Row(
     children: <Widget>[
-        Expanded(
+        /*Expanded(
             child: Row(
                 children: <Widget>[
                     Expanded(child: _createMetaSwitchListTile(context, value: false, isEnabled: isEnabled, design: metaDesign)),
@@ -71,8 +71,8 @@ Widget _createSwitchesBlockByTheme(BuildContext context,  MetaDesign? metaDesign
                     Expanded(child: _createMetaSwitchListTile(context, value: true, isEnabled: isEnabled, design: metaDesign))
                 ]
             )
-        ),
-        const SizedBox(width: 16, height: 32, child: VerticalDivider( /*width: 1*//*color: Colors.red*/)),
+        ),*/
+        const SizedBox(width: 16, height: 32, child: VerticalDivider()),
         Expanded(
             child: Theme(
                 data: useCustomTheme ? _createCustomMaterialThemeData(context, null) : _createDefaultMaterialThemeData(context, null),
@@ -88,7 +88,7 @@ Widget _createSwitchesBlockByTheme(BuildContext context,  MetaDesign? metaDesign
                 )
             )
         ),
-        const SizedBox(width: 16, height: 32, child: VerticalDivider( /*width: 1*//*color: Colors.red*/)),
+        const SizedBox(width: 16, height: 32, child: VerticalDivider()),
         Expanded(
             child: Theme(
                 data: useCustomTheme ? _createCustomMaterialLightThemeData(context) : _createDefaultMaterialLightThemeData(context),
@@ -107,7 +107,7 @@ Widget _createSwitchesBlockByTheme(BuildContext context,  MetaDesign? metaDesign
                 )
             )
         ),
-        const SizedBox(width: 16, height: 32, child: VerticalDivider( /*width: 1*//*color: Colors.red*/)),
+        const SizedBox(width: 16, height: 32, child: VerticalDivider()),
         Expanded(
             child: Theme(
                 data: useCustomTheme ? _createCustomMaterialDarkThemeData(context) : _createDefaultMaterialDarkThemeData(context),
@@ -149,9 +149,11 @@ Widget _createMetaSwitchListTile(
 ThemeData _createDefaultMaterialThemeData(BuildContext context, Brightness? brightness)
 {
     final bool isDark = (brightness ?? Theme.of(context).brightness) == Brightness.dark;
-    final SwitchThemeData? switchTheme = isDark ? _createSwitchThemeData(context, Brightness.dark, ThemeColors.PRIMARY_COLOR_DARK) : null;
+    final SwitchThemeData? switchTheme = isDark
+        ? _createSwitchThemeData(context, Brightness.dark, Colors.tealAccent)
+        : _createSwitchThemeData(context, Brightness.light, Colors.blue);
 
-    return ThemeData(
+        return ThemeData(
         useMaterial3: false,
         switchTheme: switchTheme
     );
@@ -217,14 +219,14 @@ CupertinoThemeData _createCustomCupertinoThemeData(BuildContext context, Brightn
 }
 
 CupertinoThemeData _createCustomCupertinoLightThemeData(BuildContext context)
-=>  CupertinoThemeData(
+=>  const CupertinoThemeData(
     brightness: Brightness.light,
     primaryColor: ThemeColors.PRIMARY_COLOR_LIGHT,
     applyThemeToAll: true
 );
 
 CupertinoThemeData _createCustomCupertinoDarkThemeData(BuildContext context)
-=> CupertinoThemeData(
+=> const CupertinoThemeData(
     brightness: Brightness.dark,
     primaryColor: ThemeColors.PRIMARY_COLOR_DARK,
     applyThemeToAll: true
