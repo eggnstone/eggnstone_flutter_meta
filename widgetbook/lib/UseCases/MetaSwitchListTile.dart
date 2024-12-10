@@ -1,11 +1,10 @@
 import 'package:eggnstone_flutter_meta/eggnstone_flutter_meta.dart';
-// ignore: implementation_imports
-import 'package:eggnstone_flutter_meta/src/Helpers/SwitchDefaultsM2.dart'; 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook_annotation;
 
 import '../Tools/ThemeColors.dart';
+import '../Tools/ThemeTools.dart';
 import '../Tools/WidgetbookTools.dart';
 
 @widgetbook_annotation.UseCase(name: '<normal>', type: MetaSwitchListTile)
@@ -74,9 +73,9 @@ Widget _createSwitchesBlockByTheme(BuildContext context, MetaDesign? metaDesign,
         const SizedBox(width: 16, height: 32, child: VerticalDivider()),
         Expanded(
             child: Theme(
-                data: useCustomTheme ? _createCustomMaterialThemeData(context, null) : _createDefaultMaterialThemeData(context, null),
+                data: useCustomTheme ? ThemeTools.createCustomMaterialThemeData(context, null) : ThemeTools.createDefaultMaterialThemeData(context, null),
                 child: CupertinoTheme(
-                    data: useCustomTheme ? _createCustomCupertinoThemeData(context, null) : _createDefaultCupertinoThemeData(context, null),
+                    data: useCustomTheme ? ThemeTools.createCustomCupertinoThemeData(context, null) : ThemeTools.createDefaultCupertinoThemeData(context, null),
                     child: Row(
                         children: <Widget>[
                             Expanded(child: _createMetaSwitchListTile(context, value: false, isEnabled: isEnabled, design: metaDesign)),
@@ -90,9 +89,9 @@ Widget _createSwitchesBlockByTheme(BuildContext context, MetaDesign? metaDesign,
         const SizedBox(width: 16, height: 32, child: VerticalDivider()),
         Expanded(
             child: Theme(
-                data: useCustomTheme ? _createCustomMaterialLightThemeData(context) : _createDefaultMaterialLightThemeData(context),
+                data: useCustomTheme ? ThemeTools.createCustomMaterialLightThemeData(context) : ThemeTools.createDefaultMaterialLightThemeData(context),
                 child: CupertinoTheme(
-                    data: useCustomTheme ? _createCustomCupertinoLightThemeData(context) : _createDefaultCupertinoLightThemeData(context),
+                    data: useCustomTheme ? ThemeTools.createCustomCupertinoLightThemeData(context) : ThemeTools.createDefaultCupertinoLightThemeData(context),
                     child: ColoredBox(
                         color: ThemeColors.BACKGROUND_COLOR_LIGHT,
                         child: Row(
@@ -109,9 +108,9 @@ Widget _createSwitchesBlockByTheme(BuildContext context, MetaDesign? metaDesign,
         const SizedBox(width: 16, height: 32, child: VerticalDivider()),
         Expanded(
             child: Theme(
-                data: useCustomTheme ? _createCustomMaterialDarkThemeData(context) : _createDefaultMaterialDarkThemeData(context),
+                data: useCustomTheme ? ThemeTools.createCustomMaterialDarkThemeData(context) : ThemeTools.createDefaultMaterialDarkThemeData(context),
                 child: CupertinoTheme(
-                    data: useCustomTheme ? _createCustomCupertinoDarkThemeData(context) : _createDefaultCupertinoDarkThemeData(context),
+                    data: useCustomTheme ? ThemeTools.createCustomCupertinoDarkThemeData(context) : ThemeTools.createDefaultCupertinoDarkThemeData(context),
                     child: ColoredBox(
                         color: ThemeColors.BACKGROUND_COLOR_DARK,
                         child: Row(
@@ -142,94 +141,3 @@ Widget _createMetaSwitchListTile(
     value: value,
     onChanged: isEnabled ? WidgetbookTools.dummyOnChangedBool : null
 );
-
-// Default Material
-
-ThemeData _createDefaultMaterialThemeData(BuildContext context, Brightness? brightness)
-{
-    final bool isDark = (brightness ?? Theme.of(context).brightness) == Brightness.dark;
-    final SwitchThemeData? switchTheme = isDark
-        ? _createSwitchThemeData(context, Brightness.dark, Colors.tealAccent)
-        : _createSwitchThemeData(context, Brightness.light, Colors.blue);
-
-    return ThemeData(
-        useMaterial3: false,
-        switchTheme: switchTheme
-    );
-}
-
-ThemeData _createDefaultMaterialLightThemeData(BuildContext context)
-=> _createDefaultMaterialThemeData(context, Brightness.light);
-
-ThemeData _createDefaultMaterialDarkThemeData(BuildContext context)
-=> _createDefaultMaterialThemeData(context, Brightness.dark);
-
-// Custom Material
-
-ThemeData _createCustomMaterialThemeData(BuildContext context, Brightness? brightness)
-{
-    final bool isDark = (brightness ?? Theme.of(context).brightness) == Brightness.dark;
-    final Brightness finalBrightness = isDark ? Brightness.dark : Brightness.light;
-    final Color primaryColor = isDark ? ThemeColors.PRIMARY_COLOR_DARK : ThemeColors.PRIMARY_COLOR_LIGHT;
-
-    return _createDefaultMaterialThemeData(context, null).copyWith(
-        primaryColor: primaryColor,
-        switchTheme: _createSwitchThemeData(context, finalBrightness, primaryColor) 
-    );
-}
-
-ThemeData _createCustomMaterialLightThemeData(BuildContext context)
-=> _createDefaultMaterialThemeData(context,Brightness.light).copyWith(
-    primaryColor: ThemeColors.PRIMARY_COLOR_LIGHT,
-    switchTheme: _createSwitchThemeData(context, Brightness.light, ThemeColors.PRIMARY_COLOR_LIGHT)
-);
-
-ThemeData _createCustomMaterialDarkThemeData(BuildContext context)
-=> _createDefaultMaterialThemeData(context, Brightness.dark).copyWith(
-    primaryColor: ThemeColors.PRIMARY_COLOR_DARK,
-    switchTheme: _createSwitchThemeData(context, Brightness.dark, ThemeColors.PRIMARY_COLOR_DARK)
-);
-
-// Default Cupertino
-
-CupertinoThemeData _createDefaultCupertinoThemeData(BuildContext context, Brightness? brightness)
-=> const CupertinoThemeData();
-
-CupertinoThemeData _createDefaultCupertinoLightThemeData(BuildContext context)
-=> const CupertinoThemeData(
-    brightness: Brightness.light
-);
-
-CupertinoThemeData _createDefaultCupertinoDarkThemeData(BuildContext context)
-=> const CupertinoThemeData(
-    brightness: Brightness.dark
-);
-
-// Custom Cupertino
-
-CupertinoThemeData _createCustomCupertinoThemeData(BuildContext context, Brightness? brightness)
-{
-    final bool isDark = (brightness ?? Theme.of(context).brightness) == Brightness.dark;
-    final Color primaryColor = isDark ? ThemeColors.PRIMARY_COLOR_DARK : ThemeColors.PRIMARY_COLOR_LIGHT;
-    return  CupertinoThemeData(
-        primaryColor: primaryColor,
-        applyThemeToAll: true
-    );
-}
-
-CupertinoThemeData _createCustomCupertinoLightThemeData(BuildContext context)
-=>  const CupertinoThemeData(
-    brightness: Brightness.light,
-    primaryColor: ThemeColors.PRIMARY_COLOR_LIGHT,
-    applyThemeToAll: true
-);
-
-CupertinoThemeData _createCustomCupertinoDarkThemeData(BuildContext context)
-=> const CupertinoThemeData(
-    brightness: Brightness.dark,
-    primaryColor: ThemeColors.PRIMARY_COLOR_DARK,
-    applyThemeToAll: true
-);
-
-SwitchThemeData? _createSwitchThemeData(BuildContext context, Brightness? brightness, Color color)
-=> SwitchDefaultsM2(context, brightness, color);

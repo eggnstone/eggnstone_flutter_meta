@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'Constants/ColorConstants.dart';
 import 'Meta.dart';
 import 'MetaDesign.dart';
 import 'MetaStatelessWidget.dart';
@@ -35,17 +36,13 @@ class MetaAlertDialogButton extends MetaStatelessWidget
         }
 
         final ThemeData theme = Theme.of(context);
+        final TextStyle labelLargeTextStyle = theme.textTheme.labelLarge!;
         final bool isDark = theme.brightness == Brightness.dark;
-        final Color normalColor = isDark ? Colors.white : Color(0xff222222);
-        final Color destructiveColor = isDark ? Color(0xffff2222) : Colors.red;
-        final Color textColor = onPressed == null ? Colors.grey : isDestructiveAction ? destructiveColor : normalColor;
-
-        // TODO: find a better way than creating a dummy button.
-        final TextButton textButton = TextButton(onPressed: onPressed, child: Text(text));
-        final ButtonStyle defaultButtonStyle = textButton.defaultStyleOf(context);
-        final WidgetStateProperty<TextStyle?> defaultTextStyleProperty = defaultButtonStyle.textStyle!;
-        final TextStyle defaultTextStyle = defaultTextStyleProperty.resolve(<WidgetState>{})!;
-        final TextStyle textStyle = defaultTextStyle.copyWith(color: textColor);
+        final Color normalColor = isDark ? Colors.white : ColorConstants.TEXT_BUTTON__NORMAL_LIGHT_FOREGROUND_COLOR;
+        final Color destructiveColor = isDark ? ColorConstants.TEXT_BUTTON__DARK_DESTRUCTIVE_FOREGROUND_COLOR : Colors.red;
+        final Color disabledColor = isDark ? ColorConstants.TEXT_BUTTON__DARK_DISABLED_FOREGROUND_COLOR : Colors.grey;
+        final Color textColor = onPressed == null ? disabledColor : isDestructiveAction ? destructiveColor : normalColor;
+        final TextStyle textStyle = labelLargeTextStyle.copyWith(color: textColor);
 
         return TextButton(
             child: Text(MetaStringTools.toUpperCase(text), style: textStyle),
