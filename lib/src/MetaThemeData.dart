@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'Helpers/SwitchDefaultsM2.dart';
@@ -10,47 +11,48 @@ class MetaThemeData
     static ThemeData createMaterialTheme({
         required BuildContext context,
         required bool createDarkTheme,
-        required Color color,
+        required Color color
         //Color appBarContentColorLight,
         //Color appBarContentColorDark,
-        TextStyle? textStyleBody1,
+        /*TextStyle? textStyleBody1,
         TextStyle? textStyleButton,
-        TextStyle? textStyleSubhead
+        TextStyle? textStyleSubhead*/
     })
     => createMaterialThemeWithBrightness(
         context: context,
         brightness: Meta.brightness == null ? createDarkTheme ? Brightness.dark : Brightness.light : Meta.brightness!,
-        color: color,
+        color: color
         //appBarContentColorLight: appBarContentColorLight,
         //appBarContentColorDark: appBarContentColorDark,
-        textStyleBody1: textStyleBody1,
+        /*textStyleBody1: textStyleBody1,
         textStyleButton: textStyleButton,
-        textStyleSubhead: textStyleSubhead
+        textStyleSubhead: textStyleSubhead*/
     );
 
     static ThemeData createMaterialThemeWithBrightness({
         required BuildContext context,
         required Brightness brightness,
-        required Color color,
+        required Color color
         //Color appBarContentColorLight,
         //Color appBarContentColorDark,
-        TextStyle? textStyleBody1,
+        /*TextStyle? textStyleBody1,
         TextStyle? textStyleButton,
-        TextStyle? textStyleSubhead
+        TextStyle? textStyleSubhead*/
     })
     {
-        final MaterialColor? materialColor = ColorTools.createMaterialColor(color);
+        //const MaterialColor? debugColor = kDebugMode ? Colors.pink : null;
+        //final MaterialColor? materialColor = ColorTools.createMaterialColor(color);
         final Color colorForTextAndIcons = brightness == Brightness.light ? Colors.black : Colors.white;
-        final ThemeData theme = Theme.of(context);
-        final TextTheme textTheme = theme.textTheme;
-        final TextStyle textStyleForAppBarTitle = textTheme.titleLarge!.copyWith(color: colorForTextAndIcons);
+        //final ThemeData theme = Theme.of(context);
+        //final TextTheme textTheme = theme.textTheme;
+        //final TextStyle textStyleForAppBarTitle = textTheme.titleLarge!.copyWith(color: colorForTextAndIcons);
 
         return ThemeData(
             useMaterial3: false,
 
             brightness: brightness,
 
-            appBarTheme: AppBarTheme(
+            /*appBarTheme: AppBarTheme(
                 //textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark)),
                 // Caution: also influences icons (but not the text) in popup menus which should always be black/white when brightness is light/dark.
                 //iconTheme: IconThemeData(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark),
@@ -62,21 +64,40 @@ class MetaThemeData
                 titleTextStyle: textStyleForAppBarTitle,
                 iconTheme: IconThemeData(color: colorForTextAndIcons),
                 backgroundColor: color // primarySwatch sets the color for AppBar in light mode, but not in dark mode.
-            ),
+            ),*/
 
             // TextField-Material base line in dark mode
             ////TODO: MIGRATE: accentColor: color,
+            //colorScheme: This seems to supersede the old color properties.
+
+            colorScheme: ColorScheme(
+                brightness: brightness,
+                //
+                primary: color, // button background, progress indicator, text field: cursor, thumb, underline
+                secondary: color, // switch
+                surface: color, // AppBar background
+                //
+                onPrimary: colorForTextAndIcons, // button foreground,
+                onSurface: colorForTextAndIcons, // AppBar foreground
+                //
+                error: Colors.teal,
+                onError: Colors.pink,
+                onSecondary: Colors.pink,
+            ),
+
+            //canvasColor: Colors.pink, This is indeed the canvas color = background color of the Scaffold.
+            //cardColor: Colors.green, This is indeed the card color = background color of the Card widget.
 
             // text cursor
             ////TODO: MIGRATE: cursorColor: color,
 
             // No: AppBar-Material in dark mode
-            //primaryColor: Colors.pink,// color, this doesnt do anything. use primarySwatch instead
+            //primaryColor: debugColor, // This doesnt do anything. use primarySwatch instead
 
-            // shade500 is primary color,
-            // shade600 is used for buttons in dark mode
-            // ? is used for app bar background and buttons in light mode
-            primarySwatch: materialColor,
+            // shade500 is the primary color
+            // shade600 is used for                        buttons in dark  mode
+            // shade??? is used for app bar background and buttons in light mode
+            //primarySwatch: materialColor,
 
             // text selection handles
             ////TODO: MIGRATE: textSelectionHandleColor: color,
@@ -88,16 +109,16 @@ class MetaThemeData
             ////TODO: MIGRATE: toggleableActiveColor: color,
 
             // Migrated for Switch-Material: toggleableActiveColor: color,
-            switchTheme: SwitchDefaultsM2(context, brightness, color),
+            //switchTheme: SwitchDefaultsM2(context, brightness, color)
 
-            textTheme: TextTheme(
+            /*textTheme: TextTheme(
                 // Migrated: bodyText2: textStyleBody1,
                 bodyMedium: textStyleBody1,
                 // Migrated: button: textStyleButton,
                 labelLarge: textStyleButton,
                 // Migrated: subtitle1: textStyleSubhead
                 titleMedium: textStyleSubhead
-            )
+            )*/
         );
     }
 }

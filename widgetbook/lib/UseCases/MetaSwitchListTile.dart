@@ -44,22 +44,22 @@ Widget _createSwitchesBlockByMetaDesign(BuildContext context, String label, Meta
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
             Text(label, style: textStyle),
-            _createSwitchesBlockByState(context,   metaDesign, isEnabled: false),
-            _createSwitchesBlockByState(context,  metaDesign, isEnabled: true)
+            _createSwitchesBlockByState(context,  metaDesign, isEnabled: false),
+            _createSwitchesBlockByState(context, metaDesign, isEnabled: true)
         ]
     );
 }
 
-Widget _createSwitchesBlockByState(BuildContext context,  MetaDesign? metaDesign, {required bool isEnabled})
+Widget _createSwitchesBlockByState(BuildContext context, MetaDesign? metaDesign, {required bool isEnabled})
 => Column(
     mainAxisSize: MainAxisSize.min,
     children: <Widget>[
-        _createSwitchesBlockByTheme(context,  metaDesign, isEnabled: isEnabled, useCustomTheme: false),
-        _createSwitchesBlockByTheme(context,  metaDesign, isEnabled: isEnabled, useCustomTheme: true)
+        _createSwitchesBlockByTheme(context, metaDesign, isEnabled: isEnabled, useCustomTheme: false),
+        _createSwitchesBlockByTheme(context, metaDesign, isEnabled: isEnabled, useCustomTheme: true)
     ]
 );
 
-Widget _createSwitchesBlockByTheme(BuildContext context,  MetaDesign? metaDesign, {required bool isEnabled, required bool useCustomTheme})
+Widget _createSwitchesBlockByTheme(BuildContext context, MetaDesign? metaDesign, {required bool isEnabled, required bool useCustomTheme})
 => Row(
     children: <Widget>[
         /*Expanded(

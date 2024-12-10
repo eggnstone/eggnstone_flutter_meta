@@ -4,9 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Meta.dart';
+import 'MetaDesign.dart';
+import 'MetaStatelessWidget.dart';
 import 'Tools/MetaStringTools.dart';
 
-class MetaAlertDialogButton extends StatelessWidget
+class MetaAlertDialogButton extends MetaStatelessWidget
 {
     final bool isDestructiveAction;
     final String text;
@@ -16,13 +18,15 @@ class MetaAlertDialogButton extends StatelessWidget
         required this.text,
         this.onPressed,
         this.isDestructiveAction = false,
+        super.design,
         super.key
     });
 
     @override
     Widget build(BuildContext context)
     {
-        if (Meta.isDesignCupertino)
+        //if (Meta.isDesignCupertino)
+        if (design == MetaDesign.Cupertino || (Meta.isDesignCupertino && design == null))
         {
             final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
             final Color textColor = onPressed == null

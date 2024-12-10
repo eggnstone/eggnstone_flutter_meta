@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Meta.dart';
+import 'MetaDesign.dart';
+import 'MetaStatelessWidget.dart';
 
 /// Padding around the content.
 ///
@@ -11,7 +13,7 @@ import 'Meta.dart';
 /// 20 pixels is provided above the content to separate the content from the
 /// title, and padding of 24 pixels is provided on the left, right, and bottom
 /// to separate the content from the other edges of the dialog.
-class MetaAlertDialog extends StatelessWidget
+class MetaAlertDialog extends MetaStatelessWidget
 {
     final List<Widget> actions;
     final Widget? content;
@@ -25,6 +27,7 @@ class MetaAlertDialog extends StatelessWidget
         this.overrideMaterialDefaultContentPadding,
         this.overrideMaterialDefaultTitlePadding,
         this.title,
+        super.design,
         super.key
     }) : assert(title != null || content != null, 'Either title or content must be provided');
 
@@ -40,7 +43,8 @@ class MetaAlertDialog extends StatelessWidget
         //actualContent = actualContent == null ? null : Container(child: actualContent, foregroundDecoration: BoxDecoration(color: Color.fromARGB(50, 255, 0, 0)));
 
         // TODO: make wide for iOS!
-        if (Meta.isDesignCupertino)
+        //if (Meta.isDesignCupertino)
+        if (design == MetaDesign.Cupertino || (Meta.isDesignCupertino && design == null))
             return CupertinoAlertDialog(
                 title: actualTitle,
                 // has no titlePadding
