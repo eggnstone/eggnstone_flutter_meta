@@ -152,7 +152,7 @@ ThemeData _createDefaultMaterialThemeData(BuildContext context, Brightness? brig
         ? _createSwitchThemeData(context, Brightness.dark, Colors.tealAccent)
         : _createSwitchThemeData(context, Brightness.light, Colors.blue);
 
-        return ThemeData(
+    return ThemeData(
         useMaterial3: false,
         switchTheme: switchTheme
     );

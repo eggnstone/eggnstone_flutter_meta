@@ -8,9 +8,9 @@ class MetaThemeData
 {
     @Deprecated('Meta.brightness will be removed in the future. Use createMaterialThemeWithBrightness() instead.')
     static ThemeData createMaterialTheme({
-        required BuildContext? context,
+        required BuildContext context,
         required bool createDarkTheme,
-        required Color? color,
+        required Color color,
         //Color appBarContentColorLight,
         //Color appBarContentColorDark,
         TextStyle? textStyleBody1,
@@ -29,9 +29,9 @@ class MetaThemeData
     );
 
     static ThemeData createMaterialThemeWithBrightness({
-        required BuildContext? context,
+        required BuildContext context,
         required Brightness brightness,
-        required Color? color,
+        required Color color,
         //Color appBarContentColorLight,
         //Color appBarContentColorDark,
         TextStyle? textStyleBody1,
@@ -40,12 +40,10 @@ class MetaThemeData
     })
     {
         final MaterialColor? materialColor = ColorTools.createMaterialColor(color);
-
-        final ThemeData? theme = context == null ? null : Theme.of(context);
-        final TextTheme? textTheme = theme?.textTheme;
-        final TextStyle textStyleForAppBar = textTheme == null
-            ? TextStyle(color: brightness == Brightness.light ? Colors.black : Colors.white)
-            : textTheme.titleLarge!.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white);
+        final Color colorForTextAndIcons = brightness == Brightness.light ? Colors.black : Colors.white;
+        final ThemeData theme = Theme.of(context);
+        final TextTheme textTheme = theme.textTheme;
+        final TextStyle textStyleForAppBarTitle = textTheme.titleLarge!.copyWith(color: colorForTextAndIcons);
 
         return ThemeData(
             useMaterial3: false,
@@ -57,12 +55,13 @@ class MetaThemeData
                 // Caution: also influences icons (but not the text) in popup menus which should always be black/white when brightness is light/dark.
                 //iconTheme: IconThemeData(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark),
 
-                // Migrated: textTheme: textTheme?.copyWith(headline6: textTheme.headline6!.copyWith(color: brightness == Brightness.light ? Colors.black : Colors.white)),
+                // Migrated: textTheme: textTheme?.copyWith(headline6: textTheme.headline6!.copyWith(color: brightness == colorForTextAndIcons)),
                 // textTheme has been removed, and is replaced by either toolbarTextStyle or titleTextStyle.
-                toolbarTextStyle: textStyleForAppBar.copyWith(color: Colors.red), // This is used for what?
-                titleTextStyle: textStyleForAppBar, // This is used for text.
-
-                iconTheme: IconThemeData(color: brightness == Brightness.light ? Colors.black : Colors.white)
+                //toolbarTextStyle: textStyleForAppBar.copyWith(color: ColorConstants.DEBUG_COLOR), // What is this used for?
+                //foregroundColor: Colors.tealAccent, // What is this used for?
+                titleTextStyle: textStyleForAppBarTitle,
+                iconTheme: IconThemeData(color: colorForTextAndIcons),
+                backgroundColor: color // primarySwatch sets the color for AppBar in light mode, but not in dark mode.
             ),
 
             // TextField-Material base line in dark mode
@@ -71,10 +70,12 @@ class MetaThemeData
             // text cursor
             ////TODO: MIGRATE: cursorColor: color,
 
-            // AppBar-Material in dark mode
-            primaryColor: color,
+            // No: AppBar-Material in dark mode
+            //primaryColor: Colors.pink,// color, this doesnt do anything. use primarySwatch instead
 
-            // shade500 is primary color, shade600 is used for buttons in dark mode
+            // shade500 is primary color,
+            // shade600 is used for buttons in dark mode
+            // ? is used for app bar background and buttons in light mode
             primarySwatch: materialColor,
 
             // text selection handles
@@ -87,7 +88,7 @@ class MetaThemeData
             ////TODO: MIGRATE: toggleableActiveColor: color,
 
             // Migrated for Switch-Material: toggleableActiveColor: color,
-            switchTheme: SwitchDefaultsM2(context!, brightness, color!),
+            switchTheme: SwitchDefaultsM2(context, brightness, color),
 
             textTheme: TextTheme(
                 // Migrated: bodyText2: textStyleBody1,
