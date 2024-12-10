@@ -25,24 +25,31 @@ class MetaAlertDialogButton extends MetaStatelessWidget
     @override
     Widget build(BuildContext context)
     {
-        //if (Meta.isDesignCupertino)
         if (design == MetaDesign.Cupertino || (Meta.isDesignCupertino && design == null))
         {
-            final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
-            final Color textColor = onPressed == null
-                ? CupertinoColors.inactiveGray
-                : isDestructiveAction
-                    ? CupertinoColors.destructiveRed
-                    : CupertinoColors.activeBlue;
-
             return CupertinoDialogAction(
                 child: Text(text),
-                textStyle: defaultTextStyle.style.copyWith(color: textColor),
                 isDestructiveAction: isDestructiveAction,
                 onPressed: onPressed
             );
         }
 
-        return TextButton(onPressed: onPressed, child: Text(MetaStringTools.toUpperCase(text)));
+        final ThemeData theme = Theme.of(context);
+        final bool isDark = theme.brightness == Brightness.dark;
+        final Color normalColor = isDark ? Colors.white : Color(0xff222222);
+        final Color destructiveColor = isDark ? Color(0xffff2222) : Colors.red;
+        final Color textColor = onPressed == null ? Colors.grey : isDestructiveAction ? destructiveColor : normalColor;
+
+        // TODO: find a better way than creating a dummy button.
+        final TextButton textButton = TextButton(onPressed: onPressed, child: Text(text));
+        final ButtonStyle defaultButtonStyle = textButton.defaultStyleOf(context);
+        final WidgetStateProperty<TextStyle?> defaultTextStyleProperty = defaultButtonStyle.textStyle!;
+        final TextStyle defaultTextStyle = defaultTextStyleProperty.resolve(<WidgetState>{})!;
+        final TextStyle textStyle = defaultTextStyle.copyWith(color: textColor);
+
+        return TextButton(
+            child: Text(MetaStringTools.toUpperCase(text), style: textStyle),
+            onPressed: onPressed 
+        );
     }
 }
