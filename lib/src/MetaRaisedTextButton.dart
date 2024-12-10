@@ -10,14 +10,14 @@ import 'Tools/MetaStringTools.dart';
 class MetaRaisedTextButton extends StatelessWidget
 {
     final String text;
-    final Color? color;
-    final Color? textColor;
+    // Disabled for now: final Color? color;
+    // Disabled for now: final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaRaisedTextButton({
         required this.text,
-        this.color,
-        this.textColor,
+        // Disabled for now: this.color,
+        // Disabled for now: this.textColor,
         this.onPressed,
         super.key 
     });
@@ -27,6 +27,7 @@ class MetaRaisedTextButton extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
+            /* Disabled for now:
             final CupertinoThemeData cupertinoTheme = CupertinoTheme.of(context);
             // TODO: check grey[300]
             final Color? actualColor = color ?? (cupertinoTheme.brightness == Brightness.dark ? cupertinoTheme.primaryColor : Colors.grey[300]);
@@ -36,17 +37,19 @@ class MetaRaisedTextButton extends StatelessWidget
                 actualContentColor = actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black;
 
             final TextStyle actualTextStyle = cupertinoTheme.textTheme.textStyle.copyWith(color: actualContentColor);
+            */
 
             // TODO: is there a CupertinoButtonTheme?
             return CupertinoButton(
-                child: Text(text, style: actualTextStyle),
-                color: actualColor,
+                child: Text(text, /* Disabled for now:style: actualTextStyle*/),
+                // Disabled for now: color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
             );
         }
 
+        /* Disabled for now:
         final ThemeData materialTheme = Theme.of(context);
         final ButtonStyle? elevatedButtonStyle = materialTheme.elevatedButtonTheme.style;
 
@@ -92,10 +95,11 @@ class MetaRaisedTextButton extends StatelessWidget
                     foregroundColor: newForegroundColor
                 );
         }
+        */
 
         return ElevatedButton(
             child: Text(MetaStringTools.toUpperCase(text)),
-            style: actualButtonStyle,
+            // Disabled for now: style: actualButtonStyle,
             onPressed: onPressed
         );
     }

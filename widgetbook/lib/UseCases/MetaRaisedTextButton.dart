@@ -29,8 +29,8 @@ Widget _createElevatedButtonTheme(Widget child)
 
 Widget _createMetaRaisedTextButton(BuildContext context, bool enabled)
 =>  MetaRaisedTextButton(
-    color: WidgetbookTools.getRedColors(context),
+    //color: WidgetbookTools.getRedColors(context),
     text: 'Text',
-    textColor: WidgetbookTools.getGreenTextColor(context),
+    //textColor: WidgetbookTools.getGreenTextColor(context),
     onPressed: enabled ? WidgetbookTools.dummyOnPressed : null
 );

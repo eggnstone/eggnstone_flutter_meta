@@ -8,17 +8,17 @@ import 'Tools/MetaStringTools.dart';
 
 class MetaRaisedIconAndTextButton extends StatelessWidget
 {
-    final Color? color;
+    // Disabled for now: final Color? color;
     final Icon icon;
     final String text;
-    // TODO: fix or not? final Color? textColor;
+    // Disabled for now: final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaRaisedIconAndTextButton({
         required this.icon,
         required this.text,
-        this.color,
-        // TODO: fix or not? this.textColor,
+        // Disabled for now: this.color,
+        // Disabled for now: this.textColor,
         this.onPressed,
         super.key
     });
@@ -29,7 +29,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
         if (Meta.isDesignCupertino)
         {
             final CupertinoThemeData theme = CupertinoTheme.of(context);
-            final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
+            //final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
             // TODO: fix or not? final Color actualContentColor = textColor ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
             // TODO: fix or not? final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);
             final Icon actualIcon = icon.color == null ? Icon(icon.icon, size: icon.size
@@ -46,7 +46,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                         Text(text)// TODO: fix or not? style: actualTextStyle)
                     ]
                 ),
-                color: actualColor,
+                //color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)

@@ -8,14 +8,14 @@ import 'Meta.dart';
 class MetaRaisedWidgetButton extends StatelessWidget
 {
     final Widget? child;
-    final Color? color;
-    // TODO: fix or not? final Color? textColor;
+    // Disabled for now: final Color? color;
+    // Disabled for now: final Color? textColor;
     final VoidCallback? onPressed;
 
     const MetaRaisedWidgetButton({
         this.child,
-        this.color,
-        // TODO: fix or not? this.textColor,
+        // Disabled for now: this.color,
+        // Disabled for now: this.textColor,
         this.onPressed,
         super.key
     });
@@ -25,27 +25,27 @@ class MetaRaisedWidgetButton extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            final CupertinoThemeData theme = CupertinoTheme.of(context);
-            final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
+            // Disabled for now: final CupertinoThemeData theme = CupertinoTheme.of(context);
+            // Disabled for now: final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
 
             return CupertinoButton(
                 child: child!,
-                color: actualColor,
+                // Disabled for now: color: actualColor,
                 minSize: 1,
                 onPressed: onPressed,
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
             );
         }
 
-        // TODO: fix or not? final ThemeData materialTheme = Theme.of(context);
-        // TODO: fix or not? final Color? actualColor = color ?? materialTheme.buttonColor;
-        // TODO: fix or not? final Color? actualContentColor = textColor ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
+        // Disabled for now: final ThemeData materialTheme = Theme.of(context);
+        // Disabled for now: final Color? actualColor = color ?? materialTheme.buttonColor;
+        // Disabled for now: final Color? actualContentColor = textColor ?? (actualColor.computeLuminance() < 0.5 ? Colors.white : Colors.black);
 
         return ElevatedButton(
             child: child,
-            // TODO: fix or not? color: actualColor,
+            // Disabled for now: color: actualColor,
             onPressed: onPressed
-        // TODO: fix or not? textColor: actualContentColor
+            // Disabled for now: textColor: actualContentColor
         );
     }
 }
