@@ -28,10 +28,9 @@ Widget _createSwitches(BuildContext context)
             Text('Design', style: textStyleLarge),
             Text('Disabled/Enabled State', style: textStyleMedium),
             Text('Default/Custom Theme', style: textStyleMedium),
-            Text(/*'NoTheme/'+*/'Auto/Light/Dark Brightness', style: textStyleSmall),
+            Text('Auto/Light/Dark Brightness', style: textStyleSmall),
             Text('False/True Value', style: textStyleSmall),
             const SizedBox(height: 8),
-            _createSwitchesBlockByMetaDesign(context, 'Auto', null),
             _createSwitchesBlockByMetaDesign(context, 'Material', MetaDesign.Material),
             _createSwitchesBlockByMetaDesign(context, 'Cupertino', MetaDesign.Cupertino)
         ]
