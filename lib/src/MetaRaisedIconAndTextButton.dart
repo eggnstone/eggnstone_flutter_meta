@@ -28,7 +28,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
     {
         if (Meta.isDesignCupertino)
         {
-            final CupertinoThemeData theme = CupertinoTheme.of(context);
+            //final CupertinoThemeData theme = CupertinoTheme.of(context);
             //final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
             // TODO: fix or not? final Color actualContentColor = textColor ?? (actualColor!.computeLuminance() < 0.5 ? Colors.white : Colors.black);
             // TODO: fix or not? final TextStyle actualTextStyle = theme.textTheme.textStyle.copyWith(color: actualContentColor);

@@ -1,9 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'Helpers/SwitchDefaultsM2.dart';
 import 'Meta.dart';
-import 'Tools/ColorTools.dart';
 
 class MetaThemeData
 {
