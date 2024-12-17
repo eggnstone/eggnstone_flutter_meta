@@ -12,13 +12,18 @@ class ColorTools
         return hslDark.toColor();
     }
 
+    static int _floatToInt8(double x) => (x * 255.0).round() & 0xff;
+
+    static int _getColorValue(Color color)
+    => _floatToInt8(color.a) << 24 | _floatToInt8(color.r) << 16 | _floatToInt8(color.g) << 8 | _floatToInt8(color.b) << 0;
+
     static MaterialColor? createMaterialColor(Color? color)
     {
         if (color == null)
             return null;
 
         return MaterialColor(
-            color.value,
+            _getColorValue(color),
             <int, Color>
             {
                 50: changeLuminance(color, 1.74),

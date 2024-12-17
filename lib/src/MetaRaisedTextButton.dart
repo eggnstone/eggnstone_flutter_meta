@@ -39,7 +39,7 @@ class MetaRaisedTextButton extends StatelessWidget
             */
 
             // TODO: is there a CupertinoButtonTheme?
-            return CupertinoButton(
+            return CupertinoButton.filled(
                 child: Text(text, /* Disabled for now:style: actualTextStyle*/),
                 // Disabled for now: color: actualColor,
                 minSize: 1,
