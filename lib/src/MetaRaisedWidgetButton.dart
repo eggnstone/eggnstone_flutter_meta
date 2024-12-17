@@ -28,7 +28,7 @@ class MetaRaisedWidgetButton extends StatelessWidget
             // Disabled for now: final CupertinoThemeData theme = CupertinoTheme.of(context);
             // Disabled for now: final Color? actualColor = color ?? (theme.brightness == Brightness.dark ? theme.primaryColor : Colors.grey[300]);
 
-            return CupertinoButton(
+            return CupertinoButton.filled(
                 child: child!,
                 // Disabled for now: color: actualColor,
                 minSize: 1,

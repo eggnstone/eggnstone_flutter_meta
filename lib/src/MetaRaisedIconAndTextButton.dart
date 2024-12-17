@@ -36,7 +36,7 @@ class MetaRaisedIconAndTextButton extends StatelessWidget
                 // TODO: fix or not? color: actualContentColor
                 ) : icon;
 
-            return CupertinoButton(
+            return CupertinoButton.filled(
                 child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
