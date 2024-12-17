@@ -14,7 +14,9 @@ import 'package:widgetbook_workspace/UseCases/MetaAlertDialog.dart' as _i2;
 import 'package:widgetbook_workspace/UseCases/MetaAlertDialogButton.dart'
     as _i3;
 import 'package:widgetbook_workspace/UseCases/MetaRaisedTextButton.dart' as _i4;
-import 'package:widgetbook_workspace/UseCases/MetaSwitchListTile.dart' as _i5;
+import 'package:widgetbook_workspace/UseCases/MetaRaisedWidgetButton.dart'
+    as _i5;
+import 'package:widgetbook_workspace/UseCases/MetaSwitchListTile.dart' as _i6;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookComponent(
@@ -77,11 +79,34 @@ final directories = <_i1.WidgetbookNode>[
       ),
     ],
   ),
+  _i1.WidgetbookComponent(
+    name: 'MetaRaisedWidgetButton',
+    useCases: [
+      _i1.WidgetbookUseCase(
+        name: '<normal with ElevatedButtonScheme>',
+        builder: _i5.buildMetaRaisedWidgetButtonWithElevatedButtonScheme,
+      ),
+      _i1.WidgetbookUseCase(
+        name: '<normal without ElevatedButtonScheme>',
+        builder: _i5.buildMetaRaisedWidgetButtonWithoutElevatedButtonScheme,
+      ),
+      _i1.WidgetbookUseCase(
+        name: 'Disabled with ElevatedButtonScheme',
+        builder:
+            _i5.buildMetaRaisedWidgetButtonDisabledWithElevatedButtonScheme,
+      ),
+      _i1.WidgetbookUseCase(
+        name: 'Disabled without ElevatedButtonScheme',
+        builder:
+            _i5.buildMetaRaisedWidgetButtonDisabledWithoutElevatedButtonScheme,
+      ),
+    ],
+  ),
   _i1.WidgetbookLeafComponent(
     name: 'MetaSwitchListTile',
     useCase: _i1.WidgetbookUseCase(
       name: '<normal>',
-      builder: _i5.buildMetaSwitchListTile,
+      builder: _i6.buildMetaSwitchListTile,
     ),
   ),
 ];
