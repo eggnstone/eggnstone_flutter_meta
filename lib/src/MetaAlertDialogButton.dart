@@ -29,7 +29,12 @@ class MetaAlertDialogButton extends MetaStatelessWidget
         if (design == MetaDesign.Cupertino || (Meta.isDesignCupertino && design == null))
         {
             return CupertinoDialogAction(
-                child: Text(text),
+                // https://github.com/flutter/flutter/issues/119054#issuecomment-2170983127
+                child: GestureDetector(
+                    onTap: onPressed,
+                    excludeFromSemantics: true,
+                    child: Text(text),
+                ),
                 isDestructiveAction: isDestructiveAction,
                 onPressed: onPressed
             );
