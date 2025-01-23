@@ -33,7 +33,10 @@ class MetaAlertDialogButton extends MetaStatelessWidget
                 child: CupertinoDialogAction(
                     child: Text(text),
                     isDestructiveAction: isDestructiveAction,
-                    onPressed: onPressed
+                    onPressed: ()
+                    {
+                        /*ignore*/
+                    }
                 ),
                 onTap: onPressed
             );
