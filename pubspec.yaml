@@ -1,7 +1,7 @@
 name: eggnstone_flutter_meta
 copyright: 2019-2025 Mark Eggenstein
 description: Native design with ease.
-version: 0.4.4
+version: 0.4.5
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  eggnstone_dart: 1.1.1
+  eggnstone_dart: ^1.2.3
 
 dev_dependencies:
   flutter_test:
