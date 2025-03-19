@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:eggnstone_dart/eggnstone_dart.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'MetaDesign.dart';
@@ -11,10 +12,10 @@ class Meta
     static Brightness? brightness;
 
     static bool get isDesignCupertino
-    => Platform.isIOS || forceDesign == MetaDesign.Cupertino;
+    => (!kIsWeb && Platform.isIOS) || forceDesign == MetaDesign.Cupertino;
 
     static bool get isDesignMaterial
-    => !Platform.isIOS || forceDesign == MetaDesign.Material;
+    => kIsWeb || !Platform.isIOS || forceDesign == MetaDesign.Material;
 
     static bool isDark(BuildContext context)
     {
