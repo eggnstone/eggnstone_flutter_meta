@@ -8,9 +8,9 @@ class MetaThemeData
     static ThemeData createMaterialTheme({
         required BuildContext context,
         required bool createDarkTheme,
-        required Color color
-        //Color appBarContentColorLight,
-        //Color appBarContentColorDark,
+        required Color color,
+        Color? appBarContentColorLight,
+        Color? appBarContentColorDark,
         /*TextStyle? textStyleBody1,
         TextStyle? textStyleButton,
         TextStyle? textStyleSubhead*/
@@ -18,9 +18,9 @@ class MetaThemeData
     => createMaterialThemeWithBrightness(
         context: context,
         brightness: Meta.brightness == null ? createDarkTheme ? Brightness.dark : Brightness.light : Meta.brightness!,
-        color: color
-        //appBarContentColorLight: appBarContentColorLight,
-        //appBarContentColorDark: appBarContentColorDark,
+        color: color,
+        appBarContentColorLight: appBarContentColorLight,
+        appBarContentColorDark: appBarContentColorDark,
         /*textStyleBody1: textStyleBody1,
         textStyleButton: textStyleButton,
         textStyleSubhead: textStyleSubhead*/
@@ -29,9 +29,9 @@ class MetaThemeData
     static ThemeData createMaterialThemeWithBrightness({
         required BuildContext context,
         required Brightness brightness,
-        required Color color
-        //Color appBarContentColorLight,
-        //Color appBarContentColorDark,
+        required Color color,
+        Color? appBarContentColorLight,
+        Color? appBarContentColorDark,
         /*TextStyle? textStyleBody1,
         TextStyle? textStyleButton,
         TextStyle? textStyleSubhead*/
@@ -48,6 +48,10 @@ class MetaThemeData
             useMaterial3: false,
 
             brightness: brightness,
+
+            appBarTheme: AppBarTheme(
+                foregroundColor: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark
+            ),
 
             /*appBarTheme: AppBarTheme(
                 //textTheme: textTheme?.copyWith(title: textTheme.title.copyWith(color: brightness == Brightness.light ? appBarContentColorLight : appBarContentColorDark)),
